@@ -1,11 +1,15 @@
 return {
   'nvim-treesitter/nvim-treesitter',
+  enabled = require('nixCatsUtils').enableForCategory 'treesitter',
+
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
-  enabled = require('nixCatsUtils').enableForCategory 'treesitter',
+
   event = { 'BufReadPre', 'BufNewFile' },
+
   build = require('nixCatsUtils').lazyAdd ':TSUpdate',
+
   opts = {
     -- NOTE: nixCats: use lazyAdd to only set these 2 options if nix wasnt involved.
     -- because nix already ensured they were installed.
@@ -22,6 +26,8 @@ return {
       disable = { 'latex', 'ruby' },
     },
 
+    indent = { enable = true, disable = { 'ruby' } },
+
     incremental_selection = {
       enable = true,
       keymaps = {
@@ -31,8 +37,6 @@ return {
         node_decremental = '<M-i>',
       },
     },
-
-    indent = { enable = true, disable = { 'ruby' } },
 
     textobjects = {
       select = {
