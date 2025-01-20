@@ -309,6 +309,8 @@
               # your alias may not conflict with your other packages.
               aliases = [
                 "nixcats"
+                "nvim"
+                "vim"
                 "nv"
                 "v"
               ];
