@@ -16,7 +16,7 @@ return {
         library = {
           -- adds type hints for nixCats global
           -- THIS LINE FUCK UP IF YOU ARE NOT USING NIX
-          -- { path = require('nixCats').nixCatsPath .. '/lua', words = { 'nixCats' } },
+          { path = require('nixCats').nixCatsPath .. '/lua', words = { 'nixCats' } },
         },
       },
     },

@@ -186,7 +186,7 @@
             };
 
             utils = {
-              mini-pairs = [ mini-pairs ];
+              autopairs = [ nvim-autopairs ];
 
               mini-bracketed = [ mini-bracketed ];
 
