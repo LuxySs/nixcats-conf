@@ -28,7 +28,21 @@ return {
       gopls = {},
       neocmake = {},
       pyright = {},
-      rust_analyzer = {},
+      rust_analyzer = {
+        settings = {
+          rust_analyzer = {
+            useLibraryCodeForTypes = true,
+            autoSearchPaths = true,
+            autoImportCompletions = false,
+            reportMissingImports = true,
+            followImportForHints = true,
+
+            cargo = {
+              allFeatures = true,
+            },
+          },
+        },
+      },
       ts_ls = {},
       lua_ls = {
         settings = {
