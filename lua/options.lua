@@ -70,5 +70,5 @@ vim.opt.scrolloff = 15
 
 -- Set the colorscheme if we have enabled that category
 if require('nixCatsUtils').enableForCategory { 'general', 'colorschemes' } then
-  vim.cmd.colorscheme 'catppuccin-mocha'
+  vim.cmd.colorscheme 'gruvbox'
 end
