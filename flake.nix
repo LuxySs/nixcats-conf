@@ -96,6 +96,7 @@
             general = {
               colorschemes = [
                 catppuccin-nvim
+                onedark-nvim
                 tokyonight-nvim
               ];
 
