@@ -1,6 +1,6 @@
 return {
-  require 'plugins.programming.lsp',
-  require 'plugins.programming.linting',
-  require 'plugins.programming.formatting',
-  require 'plugins.programming.debug',
+  { import = 'plugins.programming.lsp' },
+  { import = 'plugins.programming.linting' },
+  { import = 'plugins.programming.formatting' },
+  { import = 'plugins.programming.debug' },
 }

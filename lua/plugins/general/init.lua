@@ -1,4 +1,4 @@
 return {
-  require 'plugins.general.colorscheme',
-  require 'plugins.general.statusline',
+  { import = 'plugins.general.colorscheme' },
+  { import = 'plugins.general.statusline' },
 }
