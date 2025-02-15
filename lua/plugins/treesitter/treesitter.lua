@@ -6,8 +6,6 @@ return {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
 
-  event = { 'BufReadPre', 'BufNewFile' },
-
   build = require('nixCatsUtils').lazyAdd ':TSUpdate',
 
   opts = {
