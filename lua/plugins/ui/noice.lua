@@ -1,7 +1,7 @@
 return {
   'folke/noice.nvim',
   enabled = require('nixCatsUtils').enableForCategory { 'ui', 'noice' },
-  event = 'VimEnter',
+  event = 'VeryLazy',
   dependencies = { 'MunifTanjim/nui.nvim' },
   opts = {
     lsp = {

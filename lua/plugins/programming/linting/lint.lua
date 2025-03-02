@@ -1,6 +1,7 @@
 return {
   'mfussenegger/nvim-lint',
   enabled = require('nixCatsUtils').enableForCategory { 'programming', 'linting' },
+
   event = { 'BufReadPre', 'BufNewFile' },
   config = function()
     local lint = require 'lint'

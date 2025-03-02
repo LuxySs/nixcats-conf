@@ -8,7 +8,6 @@ return {
   dev = require('nixCatsUtils').lazyAdd(false, true),
 
   dependencies = { 'nvim-lua/plenary.nvim' },
-  event = 'VeryLazy',
   config = function()
     local harpoon = require 'harpoon'
     harpoon:setup()

@@ -1,7 +1,6 @@
 return {
   'stevearc/conform.nvim',
   enabled = require('nixCatsUtils').enableForCategory { 'programming', 'formatting' },
-  event = { 'BufReadPre', 'BufNewFile' },
   keys = {
     {
       '<leader>f',

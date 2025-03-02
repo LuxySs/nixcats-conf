@@ -1,7 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
   enabled = require('nixCatsUtils').enableForCategory { 'programming', 'lsp' },
-  event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`

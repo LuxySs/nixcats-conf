@@ -1,7 +1,6 @@
 return {
   'mfussenegger/nvim-dap',
   enabled = require('nixCatsUtils').enableForCategory { 'programming', 'debug' },
-  event = 'VeryLazy',
   dependencies = {
     'rcarriga/nvim-dap-ui',
 

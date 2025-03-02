@@ -1,3 +1,3 @@
 return {
-  require 'plugins.plantuml.plantuml',
+  { import = 'plugins.plantuml.plantuml' },
 }

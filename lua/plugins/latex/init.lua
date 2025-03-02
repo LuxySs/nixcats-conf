@@ -1,3 +1,3 @@
 return {
-  require 'plugins.latex.vimtex',
+  { import = 'plugins.latex.vimtex' },
 }
