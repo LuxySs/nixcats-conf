@@ -2,6 +2,6 @@ return {
   'ellisonleao/gruvbox.nvim',
   enabled = require('nixCatsUtils').enableForCategory { 'general', 'colorschemes' },
 
-  lazy = false,
+  lazy = true,
   priority = 1000,
 }

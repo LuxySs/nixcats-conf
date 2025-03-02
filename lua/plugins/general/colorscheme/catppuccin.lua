@@ -5,6 +5,6 @@ return {
   name = 'catppuccin-nvim',
   dev = require('nixCatsUtils').lazyAdd(false, true),
 
-  lazy = false,
+  lazy = true,
   priority = 1000,
 }
