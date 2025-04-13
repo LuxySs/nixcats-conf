@@ -145,6 +145,14 @@ return {
       },
     }
 
+    -- Keymap to toggle virtual_lines
+    vim.keymap.set('n', '<leader>vl', function()
+      local current = vim.diagnostic.config().virtual_lines
+      vim.diagnostic.config {
+        virtual_lines = not current,
+      }
+    end, { desc = 'Toggle [V]irtual [L]ines' })
+
     for server, config in pairs(opts.servers) do
       lspconfig[server].setup(config)
     end
