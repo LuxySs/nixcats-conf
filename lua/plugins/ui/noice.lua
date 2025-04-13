@@ -1,6 +1,9 @@
 return {
   'folke/noice.nvim',
-  enabled = require('nixCatsUtils').enableForCategory { 'ui', 'noice' },
+
+  -- enabled = require('nixCatsUtils').enableForCategory { 'ui', 'noice' },
+  enabled = false, -- TODO: Swap with line above when no more deprecation warning.
+
   event = 'VeryLazy',
   dependencies = { 'MunifTanjim/nui.nvim' },
   opts = {
