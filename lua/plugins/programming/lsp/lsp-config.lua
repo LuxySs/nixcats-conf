@@ -1,6 +1,7 @@
 return {
   'neovim/nvim-lspconfig',
   enabled = require('nixCatsUtils').enableForCategory { 'programming', 'lsp' },
+
   dependencies = {
     -- Useful status updates for LSP.
     { 'j-hui/fidget.nvim', opts = {} },
@@ -19,49 +20,7 @@ return {
     },
   },
 
-  opts = {
-    servers = {
-      bashls = {},
-      clangd = {},
-      gopls = {},
-      neocmake = {},
-      pyright = {},
-      rust_analyzer = {
-        settings = {
-          rust_analyzer = {
-            useLibraryCodeForTypes = true,
-            autoSearchPaths = true,
-            autoImportCompletions = false,
-            reportMissingImports = true,
-            followImportForHints = true,
-
-            cargo = {
-              allFeatures = true,
-            },
-          },
-        },
-      },
-      ts_ls = {},
-      lua_ls = {
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = 'Replace',
-            },
-            diagnostics = {
-              globals = { 'nixCats' },
-              disable = { 'missing-fields' },
-            },
-          },
-        },
-      },
-      nixd = {},
-    },
-  },
-
-  config = function(_, opts)
-    local lspconfig = require 'lspconfig'
-
+  init = function()
     vim.api.nvim_create_autocmd('LspAttach', {
       callback = function(event)
         local map = function(keys, func, desc, mode)
@@ -71,8 +30,12 @@ return {
 
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
-        map('[d', vim.diagnostic.goto_prev, 'Prev Diagnostic')
-        map(']d', vim.diagnostic.goto_next, 'Next Diagnostic')
+        map('[d', function()
+          vim.diagnostic.jump { count = -1 }
+        end, 'Prev Diagnostic')
+        map(']d', function()
+          vim.diagnostic.jump { count = 1 }
+        end, 'Next Diagnostic')
 
         map('<C-W>d', vim.diagnostic.open_float, 'Diagnostics Float Window')
 
@@ -124,10 +87,10 @@ return {
       underline = { severity = vim.diagnostic.severity.ERROR },
       signs = vim.g.have_nerd_font and {
         text = {
-          [vim.diagnostic.severity.ERROR] = '󰅚 ',
-          [vim.diagnostic.severity.WARN] = '󰀪 ',
-          [vim.diagnostic.severity.INFO] = '󰋽 ',
-          [vim.diagnostic.severity.HINT] = '󰌶 ',
+          [vim.diagnostic.severity.ERROR] = '<U+F015A> ',
+          [vim.diagnostic.severity.WARN] = '<U+F002A> ',
+          [vim.diagnostic.severity.INFO] = '<U+F02FD> ',
+          [vim.diagnostic.severity.HINT] = '<U+F0336> ',
         },
       } or {},
       virtual_text = {
@@ -153,8 +116,22 @@ return {
       }
     end, { desc = 'Toggle [V]irtual [L]ines' })
 
-    for server, config in pairs(opts.servers) do
-      lspconfig[server].setup(config)
+    local lspConfigPath = require('lazy.core.config').options.root .. '/nvim-lspconfig'
+    vim.opt.runtimepath:append(lspConfigPath)
+
+    local lsps = {
+      'bashls',
+      'clangd',
+      'gopls',
+      'lua_ls',
+      'neocmake',
+      'nixd',
+      'pyright',
+      'rust_analyzer',
+    }
+
+    for _, lsp in ipairs(lsps) do
+      vim.lsp.enable(lsp)
     end
   end,
 }
