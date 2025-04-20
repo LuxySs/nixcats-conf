@@ -121,6 +121,7 @@ return {
 
     local lsps = {
       'bashls',
+      'texlab',
       'clangd',
       'gopls',
       'lua_ls',

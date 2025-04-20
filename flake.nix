@@ -69,6 +69,7 @@
                 neocmakelsp
                 pyright
                 rust-analyzer
+                texlab
               ];
 
               linting = [
