@@ -116,9 +116,6 @@ return {
       }
     end, { desc = 'Toggle [V]irtual [L]ines' })
 
-    local lspConfigPath = require('lazy.core.config').options.root .. '/nvim-lspconfig'
-    vim.opt.runtimepath:append(lspConfigPath)
-
     local lsps = {
       'bashls',
       'texlab',
