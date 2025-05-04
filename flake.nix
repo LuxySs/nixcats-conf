@@ -228,6 +228,10 @@
                 telescope-ui-select-nvim
               ];
 
+              telescope-undo = [
+                telescope-undo-nvim
+              ];
+
               vim-tmux-navigator = [ vim-tmux-navigator ];
 
               toggleterm = [ toggleterm-nvim ];
