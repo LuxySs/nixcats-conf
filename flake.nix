@@ -70,6 +70,7 @@
                 pyright
                 rust-analyzer
                 texlab
+                typescript-language-server
               ];
 
               linting = [

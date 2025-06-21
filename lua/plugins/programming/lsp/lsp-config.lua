@@ -126,6 +126,7 @@ return {
       'nixd',
       'pyright',
       'rust_analyzer',
+      'ts_ls',
     }
 
     for _, lsp in ipairs(lsps) do
