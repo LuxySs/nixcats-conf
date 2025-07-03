@@ -200,11 +200,6 @@
 
               comment = [ comment-nvim ];
 
-              harpoon = [
-                harpoon2
-                plenary-nvim
-              ];
-
               mini-ai = [ mini-ai ];
 
               mini-surround = [ mini-surround ];
@@ -234,8 +229,6 @@
               ];
 
               vim-tmux-navigator = [ vim-tmux-navigator ];
-
-              toggleterm = [ toggleterm-nvim ];
 
               ufo = [
                 nvim-ufo
