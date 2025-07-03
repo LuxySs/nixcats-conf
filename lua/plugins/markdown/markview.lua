@@ -1,6 +1,8 @@
 return {
   'OXY2DEV/markview.nvim',
   enabled = require('nixCatsUtils').enableForCategory { 'markdown' },
+  lazy = false,
+  priority = 49,
 
   dependencies = {
     -- You will not need this if you installed the

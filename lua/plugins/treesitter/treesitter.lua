@@ -3,7 +3,7 @@ return {
   enabled = require('nixCatsUtils').enableForCategory 'treesitter',
 
   event = 'VeryLazy',
-  lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
+  lazy = false,
 
   dependencies = {
     'nvim-treesitter/nvim-treesitter-textobjects',
