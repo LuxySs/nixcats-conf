@@ -27,16 +27,16 @@ end
 ---@param lazyCFG table
 function M.setup(pluginTable, nixLazyPath, lazySpecs, lazyCFG)
   local function regularLazyDownload()
-    local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+    local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
     if not vim.loop.fs_stat(lazypath) then
-      vim.fn.system {
+      vim.fn.system({
         'git',
         'clone',
         '--filter=blob:none',
         'https://github.com/folke/lazy.nvim.git',
         '--branch=stable', -- latest stable release
         lazypath,
-      }
+      })
     end
     return lazypath
   end
@@ -48,7 +48,7 @@ function M.setup(pluginTable, nixLazyPath, lazySpecs, lazyCFG)
     lazypath = regularLazyDownload()
     vim.opt.rtp:prepend(lazypath)
   else
-    local nixCats = require 'nixCats'
+    local nixCats = require('nixCats')
     -- Else, its nix, so we wrap lazy with a few extra config options
     lazypath = nixLazyPath
     -- and also we probably dont have to download lazy either
@@ -109,7 +109,7 @@ function M.setup(pluginTable, nixLazyPath, lazySpecs, lazyCFG)
       cfgdir,
       nixCats.nixCatsPath,
       nixCats.pawsible.allPlugins.ts_grammar_path,
-      vim.fn.stdpath 'data' .. '/site',
+      vim.fn.stdpath('data') .. '/site',
       lazypath,
       vim.env.VIMRUNTIME,
       vim.fn.fnamemodify(vim.v.progpath, ':p:h:h') .. '/lib/nvim',

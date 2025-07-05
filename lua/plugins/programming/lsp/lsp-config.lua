@@ -1,6 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
-  enabled = require('nixCatsUtils').enableForCategory { 'programming', 'lsp' },
+  enabled = require('nixCatsUtils').enableForCategory({ 'programming', 'lsp' }),
 
   dependencies = {
     -- Useful status updates for LSP.
@@ -31,10 +31,10 @@ return {
         map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
         map('[d', function()
-          vim.diagnostic.jump { count = -1 }
+          vim.diagnostic.jump({ count = -1 })
         end, 'Prev Diagnostic')
         map(']d', function()
-          vim.diagnostic.jump { count = 1 }
+          vim.diagnostic.jump({ count = 1 })
         end, 'Next Diagnostic')
 
         map('<C-W>d', vim.diagnostic.open_float, 'Diagnostics Float Window')
@@ -63,7 +63,7 @@ return {
         ---@param bufnr? integer some lsp support methods only in specific files
         ---@return boolean
         local function client_supports_method(client, method, bufnr)
-          if vim.fn.has 'nvim-0.11' == 1 then
+          if vim.fn.has('nvim-0.11') == 1 then
             return client:supports_method(method, bufnr)
           else
             return client.supports_method(method, { bufnr = bufnr })
@@ -75,13 +75,13 @@ return {
         -- Keymap to toggle inlay hints in your code, if supported by the lsp.
         if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
           map('<leader>th', function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
           end, '[T]oggle Inlay [H]ints')
         end
       end,
     })
 
-    vim.diagnostic.config {
+    vim.diagnostic.config({
       severity_sort = true,
       float = { border = 'rounded', source = 'if_many' },
       underline = { severity = vim.diagnostic.severity.ERROR },
@@ -106,14 +106,14 @@ return {
           return diagnostic_message[diagnostic.severity]
         end,
       },
-    }
+    })
 
     -- Keymap to toggle virtual_lines
     vim.keymap.set('n', '<leader>vl', function()
       local current = vim.diagnostic.config().virtual_lines
-      vim.diagnostic.config {
+      vim.diagnostic.config({
         virtual_lines = not current,
-      }
+      })
     end, { desc = 'Toggle [V]irtual [L]ines' })
 
     local lsps = {

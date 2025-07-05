@@ -1,6 +1,6 @@
 return {
   'mfussenegger/nvim-jdtls',
-  enabled = require('nixCatsUtils').enableForCategory { 'programming', 'lsp' },
+  enabled = require('nixCatsUtils').enableForCategory({ 'programming', 'lsp' }),
   ft = { 'java' },
   config = function()
     local opts = {

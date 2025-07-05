@@ -1,2 +1,2 @@
-require 'snippets.latex'
-require 'snippets.cpp'
+require('snippets.latex')
+require('snippets.cpp')

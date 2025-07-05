@@ -3,7 +3,7 @@ vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a T
 vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 vim.g.mapleader = ' '
-vim.o.shell = os.getenv 'SHELL'
+vim.o.shell = os.getenv('SHELL')
 
 vim.opt.hlsearch = false
 
@@ -69,6 +69,6 @@ vim.opt.inccommand = 'split'
 vim.opt.scrolloff = 15
 
 -- Set the colorscheme if we have enabled that category
-if require('nixCatsUtils').enableForCategory { 'general', 'colorschemes' } then
-  vim.cmd.colorscheme 'gruvbox'
+if require('nixCatsUtils').enableForCategory({ 'general', 'colorschemes' }) then
+  vim.cmd.colorscheme('gruvbox')
 end

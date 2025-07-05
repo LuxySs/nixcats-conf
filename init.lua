@@ -1,15 +1,15 @@
-require 'autocommands'
-require 'keymaps'
-require 'options'
-require 'neovide'
+require('autocommands')
+require('options')
+require('keymaps')
+require('neovide')
 
 -- NOTE: nixCats: this just gives nixCats global command a default value
 -- so that it doesnt throw an error if you didnt install via nix.
 -- usage of both this setup and the nixCats command is optional,
 -- but it is very useful for passing info from nix to lua so you will likely use it at least once.
-require('nixCatsUtils').setup {
+require('nixCatsUtils').setup({
   non_nix_value = true,
-}
+})
 
 -- NOTE: nixCats: this is where we define some arguments for the lazy wrapper.
 local pluginList = nil
@@ -40,7 +40,7 @@ local function getlockfilepath()
   if require('nixCatsUtils').isNixCats and type(require('nixCats').settings.unwrappedCfgPath) == 'string' then
     return require('nixCats').settings.unwrappedCfgPath .. '/lazy-lock.json'
   else
-    return vim.fn.stdpath 'config' .. '/lazy-lock.json'
+    return vim.fn.stdpath('config') .. '/lazy-lock.json'
   end
 end
 local lazyOptions = {

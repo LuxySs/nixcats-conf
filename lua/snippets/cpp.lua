@@ -1,8 +1,8 @@
-local ls = require 'luasnip'
+local ls = require('luasnip')
 local s = ls.snippet
 local t = ls.text_node
 local i = ls.insert_node
-local extras = require 'luasnip.extras'
+local extras = require('luasnip.extras')
 local rep = extras.rep
 local fmt = require('luasnip.extras.fmt').fmt
 local c = ls.choice_node
@@ -13,9 +13,9 @@ local l = require('luasnip.extras').lambda
 
 ls.add_snippets('cpp', {
   s('std::cout', {
-    t 'std::cout << ',
+    t('std::cout << '),
     i(1),
-    t ' << std::endl;',
+    t(' << std::endl;'),
   }),
 })
 

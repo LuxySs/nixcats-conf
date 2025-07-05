@@ -1,6 +1,6 @@
 return {
   'echasnovski/mini.surround',
-  enabled = require('nixCatsUtils').enableForCategory { 'utils', 'mini-surround' },
+  enabled = require('nixCatsUtils').enableForCategory({ 'utils', 'mini-surround' }),
   opts = {
     -- Add/delete/replace surroundings (brackets, quotes, etc.)
     --

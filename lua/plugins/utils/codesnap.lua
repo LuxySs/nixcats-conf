@@ -1,10 +1,10 @@
 return {
   'mistricky/codesnap.nvim',
-  enabled = require('nixCatsUtils').enableForCategory { 'utils', 'codesnap' },
+  enabled = require('nixCatsUtils').enableForCategory({ 'utils', 'codesnap' }),
 
   cmd = { 'CodeSnap' },
 
-  build = require('nixCatsUtils').lazyAdd 'make',
+  build = require('nixCatsUtils').lazyAdd('make'),
   opts = {
     mac_window_bar = false,
     watermark = '',

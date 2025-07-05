@@ -1,6 +1,6 @@
 return {
   'lukas-reineke/indent-blankline.nvim',
-  enabled = require('nixCatsUtils').enableForCategory { 'ui', 'indent-blankline' },
+  enabled = require('nixCatsUtils').enableForCategory({ 'ui', 'indent-blankline' }),
   event = 'VeryLazy',
   main = 'ibl',
   opts = {

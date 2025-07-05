@@ -1,6 +1,6 @@
 return {
   'mfussenegger/nvim-dap',
-  enabled = require('nixCatsUtils').enableForCategory { 'programming', 'debug' },
+  enabled = require('nixCatsUtils').enableForCategory({ 'programming', 'debug' }),
   dependencies = {
     'rcarriga/nvim-dap-ui',
 
@@ -52,7 +52,7 @@ return {
     {
       '<leader>B',
       function()
-        require('dap').set_breakpoint(vim.fn.input 'Breakpoint condition: ')
+        require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))
       end,
       desc = 'Debug: Set Breakpoint',
     },
@@ -67,12 +67,12 @@ return {
   },
 
   config = function()
-    local dap = require 'dap'
-    local dapui = require 'dapui'
+    local dap = require('dap')
+    local dapui = require('dapui')
 
     -- NOTE: nixCats: dont use mason on nix. We can already download stuff just fine.
     if not require('nixCatsUtils').isNixCats then
-      require('mason-nvim-dap').setup {
+      require('mason-nvim-dap').setup({
         -- Makes a best effort to setup the various debuggers with
         -- reasonable debug configurations
         automatic_installation = true,
@@ -86,10 +86,10 @@ return {
           'delve',
           'gdb',
         },
-      }
+      })
     end
 
-    dapui.setup {
+    dapui.setup({
       -- Set icons to characters that are more likely to work in every terminal.
       --    Feel free to remove or use ones that you like more! :)
       --    Don't feel like these are good choices.
@@ -107,7 +107,7 @@ return {
           disconnect = '⏏',
         },
       },
-    }
+    })
 
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close

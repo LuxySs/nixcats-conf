@@ -1,6 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  enabled = require('nixCatsUtils').enableForCategory 'treesitter',
+  enabled = require('nixCatsUtils').enableForCategory('treesitter'),
 
   event = 'VeryLazy',
   lazy = false,
@@ -9,12 +9,12 @@ return {
     'nvim-treesitter/nvim-treesitter-textobjects',
   },
 
-  build = require('nixCatsUtils').lazyAdd ':TSUpdate',
+  build = require('nixCatsUtils').lazyAdd(':TSUpdate'),
 
   opts = {
     -- NOTE: nixCats: use lazyAdd to only set these 2 options if nix wasnt involved.
     -- because nix already ensured they were installed.
-    ensure_installed = require('nixCatsUtils').lazyAdd { 'bash', 'c', 'cpp', 'lua', 'markdown', 'python', 'rust' },
+    ensure_installed = require('nixCatsUtils').lazyAdd({ 'bash', 'c', 'cpp', 'lua', 'markdown', 'python', 'rust' }),
     auto_install = require('nixCatsUtils').lazyAdd(true, false),
     ignore_install = { 'latex' }, -- because I use vimtex instead
 

@@ -1,11 +1,11 @@
 return {
   'stevearc/conform.nvim',
-  enabled = require('nixCatsUtils').enableForCategory { 'programming', 'formatting' },
+  enabled = require('nixCatsUtils').enableForCategory({ 'programming', 'formatting' }),
   keys = {
     {
       '<leader>f',
       function()
-        require('conform').format { async = true, lsp_fallback = true }
+        require('conform').format({ async = true, lsp_fallback = true })
       end,
       mode = '',
       desc = '[F]ormat buffer',

@@ -1,13 +1,13 @@
 return {
   'goolord/alpha-nvim',
-  enabled = require('nixCatsUtils').enableForCategory { 'ui', 'alpha' },
+  enabled = require('nixCatsUtils').enableForCategory({ 'ui', 'alpha' }),
   dependencies = {
     'nvim-tree/nvim-web-devicons',
   },
   event = 'VimEnter',
   config = function()
-    local alpha = require 'alpha'
-    local dashboard = require 'alpha.themes.dashboard'
+    local alpha = require('alpha')
+    local dashboard = require('alpha.themes.dashboard')
     dashboard.section.header.val = {
       [[——————————— No bitches?————————----]],
       [[⠀⣞⢽⢪⢣⢣⢣⢫⡺⡵⣝⡮⣗⢷⢽⢽⢽⣮⡷⡽⣜⣜⢮⢺⣜⢷⢽⢝⡽⣝]],

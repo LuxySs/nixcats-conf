@@ -1,6 +1,6 @@
 return {
   'nvim-telescope/telescope.nvim',
-  enabled = require('nixCatsUtils').enableForCategory { 'utils', 'telescope' },
+  enabled = require('nixCatsUtils').enableForCategory({ 'utils', 'telescope' }),
   branch = '0.1.x',
   dependencies = {
     'nvim-lua/plenary.nvim',
@@ -11,14 +11,14 @@ return {
       -- This is only run then, not every time Neovim starts up.
       -- NOTE: nixCats: use lazyAdd to only run build steps if nix wasnt involved.
       -- because nix already did this.
-      build = require('nixCatsUtils').lazyAdd 'make',
+      build = require('nixCatsUtils').lazyAdd('make'),
 
       -- `cond` is a condition used to determine whether this plugin should be
       -- installed and loaded.
       -- NOTE: nixCats: use lazyAdd to only add this if nix wasnt involved.
       -- because nix built it already, so who cares if we have make in the path.
       cond = require('nixCatsUtils').lazyAdd(function()
-        return vim.fn.executable 'make' == 1
+        return vim.fn.executable('make') == 1
       end),
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
@@ -27,20 +27,20 @@ return {
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
-    require('telescope').setup {
+    require('telescope').setup({
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
         },
       },
-    }
+    })
 
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
 
     -- See `:help telescope.builtin`
-    local builtin = require 'telescope.builtin'
+    local builtin = require('telescope.builtin')
     local map = vim.keymap.set
     map('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     map('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
@@ -54,15 +54,15 @@ return {
     map('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
     map('n', '<leader>s/', function()
-      builtin.live_grep {
+      builtin.live_grep({
         grep_open_files = true,
         prompt_title = 'Live Grep in Open Files',
-      }
+      })
     end, { desc = '[S]earch [/] in Open Files' })
 
     -- Shortcut for searching your Neovim configuration files
     map('n', '<leader>sn', function()
-      builtin.find_files { cwd = vim.fn.stdpath 'config' }
+      builtin.find_files({ cwd = vim.fn.stdpath('config') })
     end, { desc = '[S]earch [N]eovim files' })
   end,
 }

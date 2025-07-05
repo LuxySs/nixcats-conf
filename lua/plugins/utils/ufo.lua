@@ -1,7 +1,7 @@
 return {
   'kevinhwang91/nvim-ufo',
   dependencies = { 'kevinhwang91/promise-async' },
-  enabled = require('nixCatsUtils').enableForCategory { 'utils', 'ufo' },
+  enabled = require('nixCatsUtils').enableForCategory({ 'utils', 'ufo' }),
   event = 'VeryLazy',
   config = function()
     vim.o.foldcolumn = '1' -- '0' is not bad
@@ -20,10 +20,10 @@ return {
       end
     end, { desc = 'Peek Fold' })
 
-    require('ufo').setup {
+    require('ufo').setup({
       provider_selector = function(bufnr, filetype, buftype)
         return { 'treesitter', 'indent' }
       end,
-    }
+    })
   end,
 }

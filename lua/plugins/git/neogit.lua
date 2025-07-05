@@ -1,7 +1,7 @@
 return {
   'NeogitOrg/neogit',
 
-  enabled = require('nixCatsUtils').enableForCategory { 'git' },
+  enabled = require('nixCatsUtils').enableForCategory({ 'git' }),
 
   dependencies = {
     'nvim-lua/plenary.nvim', -- required
