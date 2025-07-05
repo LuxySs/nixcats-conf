@@ -1,7 +1,14 @@
 return {
-  'stevearc/oil.nvim',
-  enabled = require('nixCatsUtils').enableForCategory { 'utils', 'oil' },
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  "stevearc/oil.nvim",
+  enabled = require("nixCatsUtils").enableForCategory({ "utils", "oil" }),
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   lazy = false,
-  opts = {},
+
+  config = function()
+    local oil = require("oil")
+    oil.setup()
+
+    local map = vim.keymap.set
+    map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+  end,
 }
