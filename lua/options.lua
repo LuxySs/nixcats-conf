@@ -84,6 +84,18 @@ vim.g.maplocalleader = ' ' -- Set local leader key (NEW)
 -- Shell
 vim.o.shell = os.getenv('SHELL')
 
+-- Command-line completion
+vim.opt.wildmenu = true
+vim.opt.wildmode = 'longest:full,full'
+vim.opt.wildignore:append({ '*.o', '*.obj', '*.pyc', '*.class', '*.jar' })
+
+-- Better diff options
+vim.opt.diffopt:append('linematch:60')
+
+-- Performance improvements
+vim.opt.redrawtime = 10000
+vim.opt.maxmempattern = 20000
+
 -- Sets how neovim will display certain whitespace characters in the editor.
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', nbsp = '␣' }
