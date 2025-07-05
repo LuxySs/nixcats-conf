@@ -21,6 +21,11 @@ map('v', '<A-K>', ":m '<-2<CR>gv=gv", { desc = 'Move selection up' })
 map('v', '<', '<gv', { desc = 'Indent left and reselect' })
 map('v', '>', '>gv', { desc = 'Indent right and reselect' })
 
+-- Clipboard stuff
+map({ 'n', 'v' }, '<leader>y', [["+y]], { desc = 'y (system clipboard)' })
+map('n', '<leader>Y', [["+Y]], { desc = 'Y (system clipboard)' })
+map('x', '<leader>p', [["_dP]], { desc = 'Paste without overwriting register' })
+
 -- Copy Full File-Path
 map('n', '<leader>pa', function()
   local path = vim.fn.expand('%:p')
