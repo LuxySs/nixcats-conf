@@ -60,7 +60,7 @@ vim.opt.errorbells = false -- No error bells
 vim.opt.backspace = 'indent,eol,start' -- Better backspace behavior
 vim.opt.autochdir = false -- Don't auto change directory
 vim.opt.path:append('**') -- include subdirectories in search
-vim.opt.selection = 'exclusive' -- Selection behavior
+vim.opt.selection = 'inclusive' -- Selection behavior
 vim.opt.mouse = 'a' -- Enable mouse support
 -- vim.opt.clipboard = 'unnamedplus' -- Use system clipboard
 vim.opt.modifiable = true -- Allow buffer modifications
