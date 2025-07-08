@@ -3,17 +3,11 @@ return {
   enabled = require('nixCatsUtils').enableForCategory({ 'programming', 'debug' }),
   dependencies = {
     'rcarriga/nvim-dap-ui',
-
+    'theHamsta/nvim-dap-virtual-text',
     'nvim-neotest/nvim-nio',
-
-    -- Installs the debug adapters for you
-    -- NOTE: nixCats: dont use mason on nix. We can already download stuff just fine.
-    { 'williamboman/mason.nvim', enabled = require('nixCatsUtils').lazyAdd(true, false) },
-    { 'jay-babu/mason-nvim-dap.nvim', enabled = require('nixCatsUtils').lazyAdd(true, false) },
   },
 
   keys = {
-    -- Basic debugging keymaps, feel free to change to your liking!
     {
       '<F5>',
       function()
@@ -70,30 +64,14 @@ return {
     local dap = require('dap')
     local dapui = require('dapui')
 
-    -- NOTE: nixCats: dont use mason on nix. We can already download stuff just fine.
-    if not require('nixCatsUtils').isNixCats then
-      require('mason-nvim-dap').setup({
-        -- Makes a best effort to setup the various debuggers with
-        -- reasonable debug configurations
-        automatic_installation = true,
-
-        -- You can provide additional configuration to the handlers,
-        -- see mason-nvim-dap README for more information
-        handlers = {},
-
-        -- Update this to ensure that you have the debuggers for the languages you want
-        ensure_installed = {
-          'delve',
-          'gdb',
-        },
-      })
-    end
-
+    -- Dap UI setup
     dapui.setup({
-      -- Set icons to characters that are more likely to work in every terminal.
-      --    Feel free to remove or use ones that you like more! :)
-      --    Don't feel like these are good choices.
-      icons = { expanded = '▾', collapsed = '▸', current_frame = '*' },
+      icons = {
+        expanded = '▾',
+        collapsed = '▸',
+        current_frame = '*',
+      },
+
       controls = {
         icons = {
           pause = '⏸',
@@ -109,16 +87,21 @@ return {
       },
     })
 
+    -- Automatically open/close DAP UI
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
     dap.listeners.before.event_terminated['dapui_config'] = dapui.close
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
-    -- C & C++ & Rust Debugger
+    -- Setup virtual text to show variable values inline
+    require('nvim-dap-virtual-text').setup()
+
+    -- C & C++ & Rust Debugger (GDB)
     dap.adapters.gdb = {
       type = 'executable',
       command = 'gdb',
-      args = { '-i', 'dap' },
+      args = { '--interpreter=dap', '--eval-command', 'set print pretty on' },
     }
+
     dap.configurations.c = {
       {
         name = 'Launch',
@@ -130,9 +113,29 @@ return {
         cwd = '${workspaceFolder}',
         stopAtBeginningOfMainSubprogram = false,
       },
+      {
+        name = 'Select and attach to process',
+        type = 'gdb',
+        request = 'attach',
+        program = function()
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        pid = function()
+          local name = vim.fn.input('Executable name (filter): ')
+          return require('dap.utils').pick_process({ filter = name })
+        end,
+        cwd = '${workspaceFolder}',
+      },
+      {
+        name = 'Attach to gdbserver :1234',
+        type = 'gdb',
+        request = 'attach',
+        target = 'localhost:1234',
+        program = function()
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+      },
     }
-
-    dap.configurations.cpp = dap.configurations.c
-    dap.configurations.rust = dap.configurations.c
   end,
 }

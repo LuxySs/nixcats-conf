@@ -139,6 +139,7 @@
                 nvim-dap
                 nvim-dap-ui
                 nvim-nio
+                nvim-dap-virtual-text
               ];
             };
 
