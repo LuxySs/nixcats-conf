@@ -5,6 +5,8 @@ return {
     'rcarriga/nvim-dap-ui',
     'theHamsta/nvim-dap-virtual-text',
     'nvim-neotest/nvim-nio',
+
+    'mfussenegger/nvim-dap-python',
   },
 
   keys = {
@@ -139,5 +141,8 @@ return {
     }
     dap.configurations.cpp = dap.configurations.c
     dap.configurations.rust = dap.configurations.c
+
+    -- Python Debugger
+    require('dap-python').setup('python3')
   end,
 }

@@ -140,6 +140,7 @@
                 nvim-dap-ui
                 nvim-nio
                 nvim-dap-virtual-text
+                nvim-dap-python
               ];
             };
 
