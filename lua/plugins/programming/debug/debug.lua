@@ -137,5 +137,7 @@ return {
         cwd = '${workspaceFolder}',
       },
     }
+    dap.configurations.cpp = dap.configurations.c
+    dap.configurations.rust = dap.configurations.c
   end,
 }
