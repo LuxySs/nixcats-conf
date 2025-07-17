@@ -32,3 +32,10 @@ map('n', '<leader>pa', function()
   vim.fn.setreg('+', path)
   print('file:', path)
 end)
+
+-- Copy Relative File-Path
+map('n', '<leader>pr', function()
+  local path = vim.fn.expand('%:.')
+  vim.fn.setreg('+', path)
+  print('file:', path)
+end)
