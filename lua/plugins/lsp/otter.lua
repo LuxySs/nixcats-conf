@@ -3,8 +3,6 @@ return {
   enabled = require('nixCatsUtils').enableForCategory({ 'lsp' }),
   dependencies = {
     'nvim-treesitter/nvim-treesitter',
-    'neovim/nvim-lspconfig',
-    'saghen/blink.cmp',
   },
   ft = { 'nix', 'markdown' },
   config = function()
