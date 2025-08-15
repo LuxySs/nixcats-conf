@@ -131,13 +131,6 @@
 
               mini-surround = [ mini-surround ];
 
-              neo-tree = [
-                neo-tree-nvim
-                nui-nvim
-                nvim-web-devicons
-                plenary-nvim
-              ];
-
               vim-tmux-navigator = [ vim-tmux-navigator ];
 
               oil = [
