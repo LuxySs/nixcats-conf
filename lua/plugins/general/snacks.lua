@@ -9,7 +9,13 @@ return {
     explorer = { enabled = true },
     indent = {
       enabled = true,
-      only_scope = true, -- only show indent guides of the scope
+
+      animate = {
+        enabled = false, -- disable scope animation
+      },
+      scope = {
+        enabled = false, -- disable scope highlight entirely
+      },
     },
     picker = { enabled = true },
     quickfile = { enabled = true },
