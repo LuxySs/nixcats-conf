@@ -303,12 +303,17 @@
             # (and other information to pass to lua)
             categories = {
               general = true;
-              programming = true;
               completion = true;
+
               treesitter = true;
+
+              lsp = true;
+              formatting = true;
+              linting = true;
+              debug = true;
+
               git = true;
-              ui = true;
-              utils = true;
+
               markdown = true;
               latex = true;
               plantuml = true;
