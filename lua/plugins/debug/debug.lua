@@ -1,6 +1,6 @@
 return {
   'mfussenegger/nvim-dap',
-  enabled = require('nixCatsUtils').enableForCategory({ 'programming', 'debug' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'debugging', 'dap' }),
   dependencies = {
     'rcarriga/nvim-dap-ui',
     'theHamsta/nvim-dap-virtual-text',

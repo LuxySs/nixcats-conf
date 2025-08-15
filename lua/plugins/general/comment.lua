@@ -5,7 +5,7 @@ return {
   name = 'comment.nvim',
   dev = require('nixCatsUtils').lazyAdd(false, true),
 
-  enabled = require('nixCatsUtils').enableForCategory({ 'utils', 'comment' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'general', 'comment' }),
 
   event = 'VeryLazy',
 

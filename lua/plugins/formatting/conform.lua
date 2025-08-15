@@ -1,6 +1,6 @@
 return {
   'stevearc/conform.nvim',
-  enabled = require('nixCatsUtils').enableForCategory({ 'programming', 'formatting' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'formatting', 'conform' }),
   keys = {
     {
       '<leader>f',

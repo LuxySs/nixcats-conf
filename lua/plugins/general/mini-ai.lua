@@ -1,6 +1,6 @@
 return {
   'echasnovski/mini.ai',
-  enabled = require('nixCatsUtils').enableForCategory({ 'utils', 'mini-ai' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'general', 'mini-ai' }),
   event = 'VeryLazy',
   opts = {
     -- Better Around/Inside textobjects

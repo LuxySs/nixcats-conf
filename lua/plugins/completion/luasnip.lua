@@ -1,6 +1,6 @@
 return {
   'L3MON4D3/LuaSnip',
-  enabled = require('nixCatsUtils').enableForCategory('completion'),
+  enabled = require('nixCatsUtils').enableForCategory({ 'completion, luasnip' }),
   lazy = true,
 
   name = 'luasnip',

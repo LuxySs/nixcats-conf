@@ -1,9 +1,9 @@
 return {
   'folke/snacks.nvim',
+  enabled = require('nixCatsUtils').enableForCategory({ 'general', 'snacks' }),
   priority = 1000,
   lazy = false, -- do not lazy load this
 
-  ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },
     explorer = { enabled = true },
@@ -62,13 +62,6 @@ return {
       desc = 'File Explorer',
     },
     -- find
-    {
-      '<leader>fb',
-      function()
-        Snacks.picker.buffers()
-      end,
-      desc = 'Buffers',
-    },
     {
       '<leader>fc',
       function()

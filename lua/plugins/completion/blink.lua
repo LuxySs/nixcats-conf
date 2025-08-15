@@ -1,6 +1,6 @@
 return {
   'saghen/blink.cmp',
-  enabled = require('nixCatsUtils').enableForCategory('completion'),
+  enabled = require('nixCatsUtils').enableForCategory({ 'completion, blink' }),
   event = 'InsertEnter',
 
   opts = {

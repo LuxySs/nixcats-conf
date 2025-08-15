@@ -1,6 +1,6 @@
 return {
   'stevearc/oil.nvim',
-  enabled = require('nixCatsUtils').enableForCategory({ 'utils', 'oil' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'general', 'oil' }),
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   lazy = false,
 

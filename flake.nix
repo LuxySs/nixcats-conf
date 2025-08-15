@@ -59,34 +59,41 @@
               ripgrep
             ];
 
-            programming = {
-              lsp = [
-                bash-language-server
+            lsp = {
+              c = [
                 clang-tools
-                gopls
-                jdt-language-server
-                lua-language-server
                 neocmakelsp
-                pyright
-                rust-analyzer
-                texlab
-                typescript-language-server
               ];
-
-              linting = [
-                shellcheck
-                ruff
+              cpp = [
+                clang-tools
+                neocmakelsp
               ];
-
-              formatting = [
-                stylua
-                isort
-              ];
-
-              debug = [ gdb ];
+              bash = [ bash-language-server ];
+              go = [ gopls ];
+              java = [ jdt-language-server ];
+              lua = [ lua-language-server ];
+              python = [ pyright ];
+              rust = [ rust-analyzer ];
+              latex = [ texlab ];
+              typescript = [ typescript-language-server ];
             };
 
-            markdown = [ markdownlint-cli ];
+            linting = {
+              bash = [ shellcheck ];
+              python = [ ruff ];
+              markdown = [ markdownlint-cli ];
+            };
+
+            formatting = {
+              lua = [ stylua ];
+              python = [ isort ];
+            };
+
+            debugging = {
+              c = [ gdb ];
+              cpp = [ gdb ];
+              rust = [ gdb ];
+            };
 
             latex = [ zathura ];
 
@@ -96,6 +103,8 @@
           # This is for plugins that will load at startup without using packadd:
           startupPlugins = with pkgs.vimPlugins; {
             general = {
+              lazy = [ lazy-nvim ];
+
               colorschemes = [
                 catppuccin-nvim
                 gruvbox-nvim
@@ -103,41 +112,85 @@
                 tokyonight-nvim
               ];
 
-              statusLine = [
+              autopairs = [ nvim-autopairs ];
+
+              codesnap = [ codesnap-nvim ];
+
+              colorizer = [ nvim-colorizer-lua ];
+
+              comment = [ comment-nvim ];
+
+              lualine = [
                 lualine-nvim
                 nvim-web-devicons
               ];
 
-              lazy = [ lazy-nvim ];
+              mini-ai = [ mini-ai ];
+
+              mini-bracketed = [ mini-bracketed ];
+
+              mini-surround = [ mini-surround ];
+
+              neo-tree = [
+                neo-tree-nvim
+                nui-nvim
+                nvim-web-devicons
+                plenary-nvim
+              ];
+
+              vim-tmux-navigator = [ vim-tmux-navigator ];
+
+              oil = [
+                nvim-web-devicons
+                oil-nvim
+              ];
 
               snacks = [ snacks-nvim ];
+
+              todo-comments = [
+                plenary-nvim
+                todo-comments-nvim
+              ];
+
+              ufo = [
+                nvim-ufo
+                promise-async
+              ];
+
+              which-key = [ which-key-nvim ];
             };
 
-            completion = [
-              blink-cmp
+            completion = {
+              blink = [ blink-cmp ];
 
-              luasnip
-              friendly-snippets
-            ];
-
-            programming = {
-              lsp = [
-                fidget-nvim
-                lazydev-nvim
-                nvim-jdtls
-                nvim-lspconfig
-                otter-nvim
+              luasnip = [
+                luasnip
+                friendly-snippets
               ];
+            };
 
-              linting = [
-                nvim-lint
-              ];
+            lsp = {
+              fidget = [ fidget-nvim ];
 
-              formatting = [
-                conform-nvim
-              ];
+              lazydev = [ lazydev-nvim ];
 
-              debug = [
+              jdtls = [ nvim-jdtls ];
+
+              lspconfig = [ nvim-lspconfig ];
+
+              otter = [ otter-nvim ];
+            };
+
+            linting = {
+              nvim-lint = [ nvim-lint ];
+            };
+
+            formatting = {
+              conform = [ conform-nvim ];
+            };
+
+            debugging = {
+              dap = [
                 nvim-dap
                 nvim-dap-ui
                 nvim-nio
@@ -160,95 +213,20 @@
 
             git = {
               gitsigns = [ gitsigns-nvim ];
-              neogit = [
-                neogit
-                plenary-nvim
-                diffview-nvim
-                telescope-nvim
-              ];
-            };
-
-            ui = {
-              alpha = [
-                alpha-nvim
-                nvim-web-devicons
-              ];
-
-              indent-blankline = [
-                indent-blankline-nvim
-              ];
-
-              noice = [
-                noice-nvim
-                nui-nvim
-              ];
-
-              todo-comments = [
-                plenary-nvim
-                todo-comments-nvim
-              ];
-
-              which-key = [
-                which-key-nvim
-              ];
-            };
-
-            utils = {
-              autopairs = [ nvim-autopairs ];
-
-              mini-bracketed = [ mini-bracketed ];
-
-              codesnap = [ codesnap-nvim ];
-
-              colorizer = [ nvim-colorizer-lua ];
-
-              comment = [ comment-nvim ];
-
-              mini-ai = [ mini-ai ];
-
-              mini-surround = [ mini-surround ];
-
-              neo-tree = [
-                neo-tree-nvim
-                nui-nvim
-                nvim-web-devicons
-                plenary-nvim
-              ];
-
-              oil = [
-                nvim-web-devicons
-                oil-nvim
-              ];
-
-              telescope = [
-                telescope-nvim
-                plenary-nvim
-                nvim-web-devicons
-                telescope-fzf-native-nvim
-                telescope-ui-select-nvim
-              ];
-
-              telescope-undo = [
-                telescope-undo-nvim
-              ];
-
-              vim-tmux-navigator = [ vim-tmux-navigator ];
-
-              ufo = [
-                nvim-ufo
-                promise-async
-              ];
             };
 
             markdown = {
               markdown-preview = [ markdown-preview-nvim ];
+
               markview = [
                 markview-nvim
                 nvim-web-devicons
               ];
             };
 
-            latex = [ vimtex ];
+            latex = {
+              vimtex = [ vimtex ];
+            };
 
             plantuml = [ plantuml-syntax ];
           };

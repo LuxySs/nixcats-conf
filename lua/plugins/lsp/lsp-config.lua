@@ -1,6 +1,18 @@
 return {
   'neovim/nvim-lspconfig',
-  enabled = require('nixCatsUtils').enableForCategory({ 'programming', 'lsp' }),
+  enabled = require('nixCatsUtils').enableForCategory({
+    'lsp',
+    'bash',
+    'c',
+    'cpp',
+    'go',
+    'latex',
+    'lua',
+    'nix',
+    'python',
+    'rust',
+    'typescript',
+  }),
 
   dependencies = {
     -- Useful status updates for LSP.
@@ -116,7 +128,7 @@ return {
       })
     end, { desc = 'Toggle [V]irtual [L]ines' })
 
-    local lsps = {
+    vim.lsp.enable({
       'bashls',
       'texlab',
       'clangd',
@@ -127,10 +139,6 @@ return {
       'pyright',
       'rust_analyzer',
       'ts_ls',
-    }
-
-    for _, lsp in ipairs(lsps) do
-      vim.lsp.enable(lsp)
-    end
+    })
   end,
 }

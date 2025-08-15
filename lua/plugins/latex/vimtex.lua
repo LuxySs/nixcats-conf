@@ -1,6 +1,6 @@
 return {
   'lervag/vimtex',
-  enabled = require('nixCatsUtils').enableForCategory({ 'latex' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'latex', 'vimtex' }),
   lazy = false, -- lazy-loading will disable inverse search
   config = function()
     vim.g.vimtex_mappings_disable = { ['n'] = { 'K' } } -- disable `K` as it conflicts with LSP hover
