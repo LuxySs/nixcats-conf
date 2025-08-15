@@ -2,7 +2,7 @@ return {
   'folke/snacks.nvim',
   enabled = require('nixCatsUtils').enableForCategory({ 'general', 'snacks' }),
   priority = 1000,
-  lazy = false, -- do not lazy load this
+  lazy = false, -- do not lazy load this plugin
 
   opts = {
     bigfile = { enabled = true },
@@ -14,7 +14,6 @@ return {
     picker = { enabled = true },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
-    -- dashboard = { enabled = true },
   },
 
   keys = {
@@ -325,23 +324,24 @@ return {
       end,
       desc = 'Colorschemes',
     },
+
     -- LSP
     {
-      'gd',
+      'grd',
       function()
         Snacks.picker.lsp_definitions()
       end,
       desc = 'Goto Definition',
     },
     {
-      'gD',
+      'grD',
       function()
         Snacks.picker.lsp_declarations()
       end,
       desc = 'Goto Declaration',
     },
     {
-      'gr',
+      'grr',
       function()
         Snacks.picker.lsp_references()
       end,
@@ -349,14 +349,14 @@ return {
       desc = 'References',
     },
     {
-      'gI',
+      'gri',
       function()
         Snacks.picker.lsp_implementations()
       end,
       desc = 'Goto Implementation',
     },
     {
-      'gy',
+      'grt',
       function()
         Snacks.picker.lsp_type_definitions()
       end,
@@ -378,7 +378,6 @@ return {
     },
 
     -- Other
-
     {
       '<leader>bd',
       function()
@@ -393,110 +392,5 @@ return {
       end,
       desc = 'Rename File',
     },
-    -- {
-    --   '<leader>z',
-    --   function()
-    --     Snacks.zen()
-    --   end,
-    --   desc = 'Toggle Zen Mode',
-    -- },
-    -- {
-    --   '<leader>Z',
-    --   function()
-    --     Snacks.zen.zoom()
-    --   end,
-    --   desc = 'Toggle Zoom',
-    -- },
-    -- {
-    --   '<leader>.',
-    --   function()
-    --     Snacks.scratch()
-    --   end,
-    --   desc = 'Toggle Scratch Buffer',
-    -- },
-    -- {
-    --   '<leader>S',
-    --   function()
-    --     Snacks.scratch.select()
-    --   end,
-    --   desc = 'Select Scratch Buffer',
-    -- },
-    -- {
-    --   '<leader>n',
-    --   function()
-    --     Snacks.notifier.show_history()
-    --   end,
-    --   desc = 'Notification History',
-    -- },
-    -- {
-    --   '<leader>gB',
-    --   function()
-    --     Snacks.gitbrowse()
-    --   end,
-    --   desc = 'Git Browse',
-    --   mode = { 'n', 'v' },
-    -- },
-    -- {
-    --   '<leader>gg',
-    --   function()
-    --     Snacks.lazygit()
-    --   end,
-    --   desc = 'Lazygit',
-    -- },
-    -- {
-    --   '<leader>un',
-    --   function()
-    --     Snacks.notifier.hide()
-    --   end,
-    --   desc = 'Dismiss All Notifications',
-    -- },
-    -- {
-    --   '<c-/>',
-    --   function()
-    --     Snacks.terminal()
-    --   end,
-    --   desc = 'Toggle Terminal',
-    -- },
-    -- {
-    --   '<c-_>',
-    --   function()
-    --     Snacks.terminal()
-    --   end,
-    --   desc = 'which_key_ignore',
-    -- },
-    -- {
-    --   ']]',
-    --   function()
-    --     Snacks.words.jump(vim.v.count1)
-    --   end,
-    --   desc = 'Next Reference',
-    --   mode = { 'n', 't' },
-    -- },
-    -- {
-    --   '[[',
-    --   function()
-    --     Snacks.words.jump(-vim.v.count1)
-    --   end,
-    --   desc = 'Prev Reference',
-    --   mode = { 'n', 't' },
-    -- },
-    -- {
-    --   '<leader>N',
-    --   desc = 'Neovim News',
-    --   function()
-    --     Snacks.win({
-    --       file = vim.api.nvim_get_runtime_file('doc/news.txt', false)[1],
-    --       width = 0.6,
-    --       height = 0.6,
-    --       wo = {
-    --         spell = false,
-    --         wrap = false,
-    --         signcolumn = 'yes',
-    --         statuscolumn = ' ',
-    --         conceallevel = 3,
-    --       },
-    --     })
-    --   end,
-    -- },
   },
 }
