@@ -2,36 +2,32 @@ return {
   'folke/snacks.nvim',
   priority = 1000,
   lazy = false, -- do not lazy load this
+
   ---@type snacks.Config
   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
     bigfile = { enabled = true },
-    dashboard = { enabled = true },
     explorer = { enabled = true },
-    indent = { enabled = true },
-    input = { enabled = true },
+    indent = {
+      enabled = true,
+      only_scope = true, -- only show indent guides of the scope
+    },
     picker = { enabled = true },
-    notifier = { enabled = true },
     quickfile = { enabled = true },
-    scope = { enabled = true },
-    scroll = { enabled = true },
     statuscolumn = { enabled = true },
-    words = { enabled = true },
+    -- dashboard = { enabled = true },
   },
 
   keys = {
     -- Top Pickers & Explorer
     {
-      '<leader><space>',
+      '<leader>sf',
       function()
         Snacks.picker.smart()
       end,
       desc = 'Smart Find Files',
     },
     {
-      '<leader>,',
+      '<leader><space>',
       function()
         Snacks.picker.buffers()
       end,
@@ -387,42 +383,9 @@ return {
       end,
       desc = 'LSP Workspace Symbols',
     },
+
     -- Other
-    {
-      '<leader>z',
-      function()
-        Snacks.zen()
-      end,
-      desc = 'Toggle Zen Mode',
-    },
-    {
-      '<leader>Z',
-      function()
-        Snacks.zen.zoom()
-      end,
-      desc = 'Toggle Zoom',
-    },
-    {
-      '<leader>.',
-      function()
-        Snacks.scratch()
-      end,
-      desc = 'Toggle Scratch Buffer',
-    },
-    {
-      '<leader>S',
-      function()
-        Snacks.scratch.select()
-      end,
-      desc = 'Select Scratch Buffer',
-    },
-    {
-      '<leader>n',
-      function()
-        Snacks.notifier.show_history()
-      end,
-      desc = 'Notification History',
-    },
+
     {
       '<leader>bd',
       function()
@@ -437,75 +400,110 @@ return {
       end,
       desc = 'Rename File',
     },
-    {
-      '<leader>gB',
-      function()
-        Snacks.gitbrowse()
-      end,
-      desc = 'Git Browse',
-      mode = { 'n', 'v' },
-    },
-    {
-      '<leader>gg',
-      function()
-        Snacks.lazygit()
-      end,
-      desc = 'Lazygit',
-    },
-    {
-      '<leader>un',
-      function()
-        Snacks.notifier.hide()
-      end,
-      desc = 'Dismiss All Notifications',
-    },
-    {
-      '<c-/>',
-      function()
-        Snacks.terminal()
-      end,
-      desc = 'Toggle Terminal',
-    },
-    {
-      '<c-_>',
-      function()
-        Snacks.terminal()
-      end,
-      desc = 'which_key_ignore',
-    },
-    {
-      ']]',
-      function()
-        Snacks.words.jump(vim.v.count1)
-      end,
-      desc = 'Next Reference',
-      mode = { 'n', 't' },
-    },
-    {
-      '[[',
-      function()
-        Snacks.words.jump(-vim.v.count1)
-      end,
-      desc = 'Prev Reference',
-      mode = { 'n', 't' },
-    },
-    {
-      '<leader>N',
-      desc = 'Neovim News',
-      function()
-        Snacks.win({
-          file = vim.api.nvim_get_runtime_file('doc/news.txt', false)[1],
-          width = 0.6,
-          height = 0.6,
-          wo = {
-            spell = false,
-            wrap = false,
-            signcolumn = 'yes',
-            statuscolumn = ' ',
-            conceallevel = 3,
-          },
-        })
-      end,
-    },
+    -- {
+    --   '<leader>z',
+    --   function()
+    --     Snacks.zen()
+    --   end,
+    --   desc = 'Toggle Zen Mode',
+    -- },
+    -- {
+    --   '<leader>Z',
+    --   function()
+    --     Snacks.zen.zoom()
+    --   end,
+    --   desc = 'Toggle Zoom',
+    -- },
+    -- {
+    --   '<leader>.',
+    --   function()
+    --     Snacks.scratch()
+    --   end,
+    --   desc = 'Toggle Scratch Buffer',
+    -- },
+    -- {
+    --   '<leader>S',
+    --   function()
+    --     Snacks.scratch.select()
+    --   end,
+    --   desc = 'Select Scratch Buffer',
+    -- },
+    -- {
+    --   '<leader>n',
+    --   function()
+    --     Snacks.notifier.show_history()
+    --   end,
+    --   desc = 'Notification History',
+    -- },
+    -- {
+    --   '<leader>gB',
+    --   function()
+    --     Snacks.gitbrowse()
+    --   end,
+    --   desc = 'Git Browse',
+    --   mode = { 'n', 'v' },
+    -- },
+    -- {
+    --   '<leader>gg',
+    --   function()
+    --     Snacks.lazygit()
+    --   end,
+    --   desc = 'Lazygit',
+    -- },
+    -- {
+    --   '<leader>un',
+    --   function()
+    --     Snacks.notifier.hide()
+    --   end,
+    --   desc = 'Dismiss All Notifications',
+    -- },
+    -- {
+    --   '<c-/>',
+    --   function()
+    --     Snacks.terminal()
+    --   end,
+    --   desc = 'Toggle Terminal',
+    -- },
+    -- {
+    --   '<c-_>',
+    --   function()
+    --     Snacks.terminal()
+    --   end,
+    --   desc = 'which_key_ignore',
+    -- },
+    -- {
+    --   ']]',
+    --   function()
+    --     Snacks.words.jump(vim.v.count1)
+    --   end,
+    --   desc = 'Next Reference',
+    --   mode = { 'n', 't' },
+    -- },
+    -- {
+    --   '[[',
+    --   function()
+    --     Snacks.words.jump(-vim.v.count1)
+    --   end,
+    --   desc = 'Prev Reference',
+    --   mode = { 'n', 't' },
+    -- },
+    -- {
+    --   '<leader>N',
+    --   desc = 'Neovim News',
+    --   function()
+    --     Snacks.win({
+    --       file = vim.api.nvim_get_runtime_file('doc/news.txt', false)[1],
+    --       width = 0.6,
+    --       height = 0.6,
+    --       wo = {
+    --         spell = false,
+    --         wrap = false,
+    --         signcolumn = 'yes',
+    --         statuscolumn = ' ',
+    --         conceallevel = 3,
+    --       },
+    --     })
+    --   end,
+    -- },
   },
 }
