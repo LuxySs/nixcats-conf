@@ -109,6 +109,8 @@
               ];
 
               lazy = [ lazy-nvim ];
+
+              snacks = [ snacks-nvim ];
             };
 
             completion = [
