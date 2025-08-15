@@ -19,7 +19,6 @@ return {
     },
     picker = { enabled = true },
     quickfile = { enabled = true },
-    statuscolumn = { enabled = true },
   },
 
   keys = {
