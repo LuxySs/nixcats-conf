@@ -59,15 +59,12 @@
               ripgrep
             ];
 
-            lsp = {
+            lsp = rec {
               c = [
                 clang-tools
                 neocmakelsp
               ];
-              cpp = [
-                clang-tools
-                neocmakelsp
-              ];
+              cpp = c;
               bash = [ bash-language-server ];
               go = [ gopls ];
               java = [ jdt-language-server ];
@@ -79,7 +76,6 @@
             };
 
             linting = {
-              bash = [ shellcheck ];
               python = [ ruff ];
               markdown = [ markdownlint-cli ];
             };
@@ -89,10 +85,10 @@
               python = [ isort ];
             };
 
-            debugging = {
+            debugging = rec {
               c = [ gdb ];
-              cpp = [ gdb ];
-              rust = [ gdb ];
+              cpp = c;
+              rust = c;
             };
 
             latex = [ zathura ];
