@@ -106,6 +106,7 @@
                 gruvbox-nvim
                 onedark-nvim
                 tokyonight-nvim
+                vague-nvim
               ];
 
               autopairs = [ nvim-autopairs ];
