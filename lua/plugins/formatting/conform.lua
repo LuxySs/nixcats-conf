@@ -1,6 +1,10 @@
 return {
   'stevearc/conform.nvim',
   enabled = require('nixCatsUtils').enableForCategory({ 'formatting', 'conform' }),
+
+  event = { 'BufWritePre' },
+  cmd = { 'ConformInfo' },
+
   keys = {
     {
       '<leader>f',
@@ -11,28 +15,35 @@ return {
       desc = '[F]ormat buffer',
     },
   },
+
   opts = {
-    notify_on_error = false,
-    format_on_save = function(bufnr)
-      -- Disable "format_on_save lsp_fallback" for languages that don't
-      -- have a well standardized coding style. You can add additional
-      -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true, cpp = true }
-      return {
-        timeout_ms = 500,
-        lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-      }
-    end,
     formatters_by_ft = {
       lua = { 'stylua' },
       nix = { 'nixfmt' },
       c = { 'clang-format' },
       cpp = { 'clang-format' },
-      python = { 'isort', 'ruff_format' },
+      python = { 'ruff_format' },
       javascript = { 'prettierd' },
-      -- You can use a sub-list to tell conform to run *until* a formatter
-      -- is found.
-      -- javascript = { { "prettierd", "prettier" } },
+      typescript = { 'prettierd' },
     },
+
+    format_on_save = function(bufnr)
+      -- Disable autoformat on certain languages that don't
+      -- have a well standardized coding style (c, cpp, ...).
+      local disable_lsp_fallback_filetypes = { c = true, cpp = true }
+      if disable_lsp_fallback_filetypes[vim.bo[bufnr].filetype] then
+        return
+      end
+
+      -- Disable autoformat with a global or buffer-local variable
+      if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+        return
+      end
+
+      return {
+        timeout_ms = 500,
+        lsp_format = 'fallback',
+      }
+    end,
   },
 }

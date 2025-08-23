@@ -80,9 +80,14 @@
               markdown = [ markdownlint-cli ];
             };
 
-            formatting = {
+            formatting = rec {
               lua = [ stylua ];
+              nix = [ nixfmt ];
+              c = [ clang-tools ];
+              cpp = c;
               python = [ isort ];
+              javascript = [ prettierd ];
+              typescript = javascript;
             };
 
             debugging = rec {
