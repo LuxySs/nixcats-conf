@@ -300,7 +300,7 @@
               lsp = true;
               formatting = true;
               linting = true;
-              debug = true;
+              debugging = true;
 
               git = true;
 

@@ -1,6 +1,6 @@
 return {
   { import = 'plugins.completion' },
-  { import = 'plugins.debug' },
+  { import = 'plugins.debugging' },
   { import = 'plugins.formatting' },
   { import = 'plugins.general' },
   { import = 'plugins.git' },
