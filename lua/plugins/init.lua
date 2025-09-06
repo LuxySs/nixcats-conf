@@ -10,4 +10,5 @@ return {
   { import = 'plugins.markdown' },
   { import = 'plugins.plantuml' },
   { import = 'plugins.treesitter' },
+  { import = 'plugins.typst' },
 }

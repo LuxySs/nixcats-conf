@@ -57,6 +57,7 @@
               nixd
               nixfmt-rfc-style
               ripgrep
+              websocat # for typst-preview.nvim
             ];
 
             lsp = rec {
@@ -73,6 +74,7 @@
               rust = [ rust-analyzer ];
               latex = [ texlab ];
               typescript = [ typescript-language-server ];
+              typst = [ tinymist ];
             };
 
             linting = {
@@ -223,6 +225,10 @@
               vimtex = [ vimtex ];
             };
 
+            typst = {
+              typst-preview = [ typst-preview-nvim ];
+            };
+
             plantuml = [ plantuml-syntax ];
           };
 
@@ -311,6 +317,7 @@
 
               markdown = true;
               latex = true;
+              typst = true;
               plantuml = true;
             };
           };
