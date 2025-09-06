@@ -12,6 +12,7 @@ return {
     'python',
     'rust',
     'typescript',
+    'typst',
   }),
 
   dependencies = {
@@ -125,6 +126,7 @@ return {
       'pyright',
       'rust_analyzer',
       'ts_ls',
+      'tinymist',
     })
   end,
 }
