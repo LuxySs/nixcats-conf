@@ -73,7 +73,8 @@
               python = [ pyright ];
               rust = [ rust-analyzer ];
               latex = [ texlab ];
-              typescript = [ typescript-language-server ];
+              javascript = [ typescript-language-server ];
+              typescript = javascript;
               typst = [ tinymist ];
             };
 

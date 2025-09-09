@@ -6,6 +6,7 @@ return {
     'c',
     'cpp',
     'go',
+    'javascript',
     'latex',
     'lua',
     'nix',
