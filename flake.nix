@@ -320,6 +320,8 @@
               latex = true;
               typst = true;
               plantuml = true;
+
+              colorscheme = "gruvbox";
             };
           };
       };
