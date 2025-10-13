@@ -4,5 +4,7 @@ return {
   cmd = { 'TypstPreview' },
   ft = { 'typst' },
   version = '1.*',
-  opts = {},
+  opts = {
+    invert_colors = 'auto',
+  },
 }
