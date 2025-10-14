@@ -3,10 +3,11 @@ return {
   enabled = require('nixCatsUtils').enableForCategory({ 'lsp' }),
   dependencies = {
     'nvim-treesitter/nvim-treesitter',
+    'neovim/nvim-lspconfig',
   },
-  ft = { 'nix', 'markdown' },
+
   config = function()
-    local otter = require('otter')
-    otter.activate({ 'bash', 'c', 'cpp', 'lua', 'nix', 'python', 'rust' }, true, true, nil)
+    local map = vim.keymap.set
+    map('n', '<leader>oa', require('otter').activate, { desc = '[o]tter [a]ctivate' })
   end,
 }
