@@ -27,8 +27,7 @@ return {
       ft = 'lua',
       opts = {
         library = {
-          -- adds type hints for nixCats global
-          { path = require('nixCats').nixCatsPath .. '/lua', words = { 'nixCats' } },
+          { path = (nixCats.nixCatsPath or '') .. '/lua', words = { 'nixCats' } },
         },
       },
     },

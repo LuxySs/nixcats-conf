@@ -2,6 +2,7 @@ return {
   'saghen/blink.cmp',
   enabled = require('nixCatsUtils').enableForCategory({ 'completion', 'blink' }),
   event = 'InsertEnter',
+  version = '1.*',
 
   opts = {
     keymap = {
@@ -20,8 +21,9 @@ return {
     signature = { enabled = true },
 
     fuzzy = {
+      implementation = 'prefer_rust_with_warning',
       prebuilt_binaries = {
-        download = false,
+        download = true,
       },
     },
 

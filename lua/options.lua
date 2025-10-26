@@ -102,8 +102,3 @@ vim.opt.listchars = { tab = '» ', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
-
--- Set the colorscheme if we have enabled that category
-if require('nixCatsUtils').enableForCategory({ 'general', 'colorschemes' }) then
-  vim.cmd.colorscheme(require('nixCatsUtils').getCatOrDefault('colorscheme', 'gruvbox'))
-end
