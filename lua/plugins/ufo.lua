@@ -1,6 +1,6 @@
 return {
   'kevinhwang91/nvim-ufo',
-  enabled = require('nixCatsUtils').enableForCategory({ 'general', 'ufo' }),
+  enabled = require('nixCatsUtils').enableForCategory({}),
   dependencies = { 'kevinhwang91/promise-async' },
   event = 'VeryLazy',
   config = function()

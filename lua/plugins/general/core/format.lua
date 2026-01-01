@@ -1,6 +1,6 @@
 return {
   'stevearc/conform.nvim',
-  enabled = require('nixCatsUtils').enableForCategory({ 'formatting', 'conform' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'core' }),
 
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },

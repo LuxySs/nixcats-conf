@@ -1,6 +1,6 @@
 return {
   'folke/snacks.nvim',
-  enabled = require('nixCatsUtils').enableForCategory({ 'general', 'snacks' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'general' }),
   priority = 1000,
   lazy = false, -- do not lazy load this plugin
 

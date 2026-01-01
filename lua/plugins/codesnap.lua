@@ -1,6 +1,6 @@
 return {
   'mistricky/codesnap.nvim',
-  enabled = require('nixCatsUtils').enableForCategory({ 'general', 'codesnap' }),
+  enabled = require('nixCatsUtils').enableForCategory({}),
 
   cmd = { 'CodeSnap' },
 

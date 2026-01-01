@@ -1,6 +1,6 @@
 return {
   'jmbuhr/otter.nvim',
-  enabled = require('nixCatsUtils').enableForCategory({ 'lsp' }),
+  enabled = require('nixCatsUtils').enableForCategory({}),
   dependencies = {
     'nvim-treesitter/nvim-treesitter',
     'neovim/nvim-lspconfig',

@@ -132,7 +132,6 @@
               mini-bracketed
               mini-surround
               nvim-autopairs
-              nvim-lspconfig
               oil-nvim
               snacks-nvim
               vim-tmux-navigator
@@ -265,9 +264,8 @@
             categories = {
               portableExtras = true;
 
-              core = true;
+              general = true;
 
-              # general = true;
               # markdown = true;
               # java = true;
               # web = true;

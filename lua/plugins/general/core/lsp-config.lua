@@ -1,20 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
-  enabled = require('nixCatsUtils').enableForCategory({
-    'lsp',
-    'bash',
-    'c',
-    'cpp',
-    'go',
-    'javascript',
-    'latex',
-    'lua',
-    'nix',
-    'python',
-    'rust',
-    'typescript',
-    'typst',
-  }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'core' }),
 
   dependencies = {
     -- Useful status updates for LSP.

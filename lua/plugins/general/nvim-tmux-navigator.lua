@@ -1,6 +1,6 @@
 return {
   'christoomey/vim-tmux-navigator',
-  enabled = require('nixCatsUtils').enableForCategory({ 'general', 'vim-tmux-navigator' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'general' }),
 
   cmd = {
     'TmuxNavigateLeft',
