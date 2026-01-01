@@ -1,17 +1,11 @@
--- Automatically include all filetypes with a configured linter as categories
--- (in addition to the 'linting' category).
 local linters_by_ft = {
   markdown = { 'markdownlint' },
   python = { 'ruff' },
 }
-local categories = { 'linting' }
-for ft, _ in pairs(linters_by_ft) do
-  table.insert(categories, ft)
-end
 
 return {
   'mfussenegger/nvim-lint',
-  enabled = require('nixCatsUtils').enableForCategory(categories),
+  enabled = require('nixCatsUtils').enableForCategory({ 'core' }),
 
   event = { 'BufReadPre', 'BufNewFile' },
   config = function()

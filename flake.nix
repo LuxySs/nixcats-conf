@@ -50,194 +50,154 @@
           # at RUN TIME for plugins. Will be available to PATH within neovim terminal
           # this includes LSPs
           lspsAndRuntimeDeps = with pkgs; {
-            general = [
-              fd
-              fzf
+            portableExtras = [
+              wl-clipboard
+              git
+              nix
+              coreutils-full
+              curl
+            ];
+            general = {
+              core = [
+                universal-ctags
+                ripgrep
+                fd
+                jq
+              ];
+            };
+            markdown = [
+              markdownlint-cli
+            ];
+            java = [
+              jdt-language-server
+            ];
+            web = {
+              JS = with nodePackages; [
+                typescript-language-server
+                eslint
+                prettier
+              ];
+            };
+            rust = [
+              rust-analyzer
+            ];
+            lua = [
+              lua-language-server
+            ];
+            typst = [
+              tinymist
+              websocat
+            ];
+            nix = [
               nix-doc
               nixd
               nixfmt-rfc-style
-              ripgrep
-              websocat # for typst-preview.nvim
             ];
-
-            lsp = rec {
-              c = [
-                clang-tools
-                neocmakelsp
-              ];
-              cpp = c;
-              bash = [ bash-language-server ];
-              go = [ gopls ];
-              java = [ jdt-language-server ];
-              lua = [ lua-language-server ];
-              python = [ pyright ];
-              rust = [ rust-analyzer ];
-              latex = [ texlab ];
-              javascript = [ typescript-language-server ];
-              typescript = javascript;
-              typst = [ tinymist ];
-            };
-
-            linting = {
-              python = [ ruff ];
-              markdown = [ markdownlint-cli ];
-            };
-
-            formatting = rec {
-              lua = [ stylua ];
-              nix = [ nixfmt ];
-              c = [ clang-tools ];
-              cpp = c;
-              python = [ isort ];
-              javascript = [ prettierd ];
-              typescript = javascript;
-            };
-
-            debugging = rec {
-              c = [ gdb ];
-              cpp = c;
-              rust = c;
-            };
-
-            latex = [ zathura ];
-
-            plantuml = [ plantuml ];
+            bash = [
+              bash-language-server
+            ];
+            python = [
+              isort
+              pyright
+              ruff
+            ];
+            C = [
+              clang-tools
+              neocmakelsp
+              #TODO: add cmake-format
+            ];
+            latex = [
+              texlab
+            ];
+            plantuml = [
+              plantuml
+            ];
           };
 
           # This is for plugins that will load at startup without using packadd:
           startupPlugins = with pkgs.vimPlugins; {
-            general = {
-              lazy = [ lazy-nvim ];
+            # TODO: colorscheme
 
-              colorschemes = [
-                catppuccin-nvim
-                gruvbox-nvim
-                onedark-nvim
-                tokyonight-nvim
-                vague-nvim
-              ];
-
-              autopairs = [ nvim-autopairs ];
-
-              codesnap = [ codesnap-nvim ];
-
-              colorizer = [ nvim-colorizer-lua ];
-
-              comment = [ comment-nvim ];
-
-              lualine = [
-                lualine-nvim
-                nvim-web-devicons
-              ];
-
-              mini-ai = [ mini-ai ];
-
-              mini-bracketed = [ mini-bracketed ];
-
-              mini-surround = [ mini-surround ];
-
-              vim-tmux-navigator = [ vim-tmux-navigator ];
-
-              oil = [
-                nvim-web-devicons
-                oil-nvim
-              ];
-
-              snacks = [ snacks-nvim ];
-
-              todo-comments = [
-                plenary-nvim
-                todo-comments-nvim
-              ];
-
-              ufo = [
-                nvim-ufo
-                promise-async
-              ];
-
-              which-key = [ which-key-nvim ];
-            };
-
-            completion = {
-              blink = [ blink-cmp ];
-
-              luasnip = [
-                luasnip
-                friendly-snippets
-              ];
-            };
-
-            lsp = {
-              fidget = [ fidget-nvim ];
-
-              lazydev = [ lazydev-nvim ];
-
-              jdtls = [ nvim-jdtls ];
-
-              lspconfig = [ nvim-lspconfig ];
-
-              otter = [ otter-nvim ];
-            };
-
-            linting = {
-              nvim-lint = [ nvim-lint ];
-            };
-
-            formatting = {
-              conform = [ conform-nvim ];
-            };
-
-            debugging = {
-              dap = [
-                nvim-dap
-                nvim-dap-ui
-                nvim-nio
-                nvim-dap-virtual-text
-                nvim-dap-python
-              ];
-            };
-
-            treesitter = [
-              nvim-treesitter.withAllGrammars
-              # This is for if you only want some of the grammars
-              # (nvim-treesitter.withPlugins (
-              #   plugins: with plugins; [
-              #     nix
-              #     lua
-              #   ]
-              # ))
+            colorschemes = [
+              catppuccin-nvim
+              gruvbox-nvim
+              onedark-nvim
+              tokyonight-nvim
+              vague-nvim
             ];
 
-            git = {
-              gitsigns = [ gitsigns-nvim ];
-            };
-
-            markdown = {
-              markdown-preview = [ markdown-preview-nvim ];
-
-              markview = [
-                markview-nvim
-                nvim-web-devicons
-              ];
-            };
-
-            latex = {
-              vimtex = [ vimtex ];
-            };
-
-            typst = {
-              typst-preview = [ typst-preview-nvim ];
-            };
-
-            plantuml = [ plantuml-syntax ];
+            general = [
+              lazy-nvim
+              mini-ai
+              mini-bracketed
+              mini-surround
+              nvim-autopairs
+              nvim-lspconfig
+              oil-nvim
+              snacks-nvim
+              vim-tmux-navigator
+            ];
           };
 
           # not loaded automatically at startup.
           # use with packadd and an autocommand in config to achieve lazy loading
-          # NOTE: this template is using lazy.nvim so, which list you put them in is irrelevant.
-          # startupPlugins or optionalPlugins, it doesnt matter, lazy.nvim does the loading.
-          # I just put them all in startupPlugins. I could have put them all in here instead.
-          optionalPlugins = { };
+          # NOTE: no difference between this and startupPlugins since lazy is
+          # in charge of the lazy loading side of things.
+          optionalPlugins = with pkgs.vimPlugins; {
+            # otter = [
+            #   otter-nvim
+            # ];
+            # java = [
+            #   nvim-jdtls
+            # ];
+            # typst = [
+            #   typst-preview-nvim
+            # ];
+            # debug = [
+            #   nvim-dap
+            #   nvim-dap-ui
+            #   nvim-dap-virtual-text
+            # ];
+            # other = [
+            #   plenary-nvim
+            #   todo-comments-nvim
+            #   which-key-nvim
+            #   nvim-ufo
+            #   nvim-highlight-colors
+            #   comment-nvim
+            # ];
+            # markdown = [
+            #   markdown-preview-nvim
+            #   markview-nvim
+            # ];
+            # latex = [
+            #   vimtex
+            # ];
+            # plantuml = [
+            #   plantuml-syntax
+            # ];
+            # codesnap = [
+            #   codesnap-nvim
+            # ];
+
+            general = with pkgs.neovimPlugins; {
+              blink = with pkgs.vimPlugins; [
+                blink-cmp
+                luasnip
+                friendly-snippets
+              ];
+              core = [
+                nvim-treesitter.withAllGrammars
+                lualine-nvim
+                gitsigns-nvim
+                nvim-lint
+                conform-nvim
+                fidget-nvim
+                nvim-lspconfig
+                lazydev-nvim
+              ];
+            };
+          };
 
           # shared libraries to be added to LD_LIBRARY_PATH
           # variable available to nvim runtime
@@ -303,24 +263,28 @@
             # and a set of categories that you want
             # (and other information to pass to lua)
             categories = {
-              general = true;
-              completion = true;
+              portableExtras = true;
 
-              treesitter = true;
+              core = true;
 
-              lsp = true;
-              formatting = true;
-              linting = true;
-              debugging = true;
-
-              git = true;
-
-              markdown = true;
-              latex = true;
-              typst = true;
-              plantuml = true;
-
-              colorscheme = "gruvbox";
+              # general = true;
+              # markdown = true;
+              # java = true;
+              # web = true;
+              # rust = true;
+              # lua = true;
+              # typst = true;
+              # nix = true;
+              # bash = true;
+              # python = true;
+              # C = true;
+              # latex = true;
+              # plantuml = true;
+              # otter = true;
+              # debug = true;
+              # other = true;
+              # codesnap = true;
+              # colorscheme = "gruvbox";
             };
           };
       };

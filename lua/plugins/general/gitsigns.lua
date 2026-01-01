@@ -1,6 +1,6 @@
 return {
   'lewis6991/gitsigns.nvim',
-  enabled = require('nixCatsUtils').enableForCategory({ 'git', 'gitsigns' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'core' }),
 
   opts = {
     signs = {
