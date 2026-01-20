@@ -118,13 +118,13 @@
           startupPlugins = with pkgs.vimPlugins; {
             # TODO: colorscheme
 
-            colorschemes = [
-              catppuccin-nvim
-              gruvbox-nvim
-              onedark-nvim
-              tokyonight-nvim
-              vague-nvim
-            ];
+            # colorschemes = [
+            #   catppuccin-nvim
+            #   gruvbox-nvim
+            #   onedark-nvim
+            #   tokyonight-nvim
+            #   vague-nvim
+            # ];
 
             general = [
               lazy-nvim
@@ -135,6 +135,7 @@
               oil-nvim
               snacks-nvim
               vim-tmux-navigator
+              nvim-web-devicons
             ];
           };
 
@@ -264,7 +265,8 @@
             categories = {
               portableExtras = true;
 
-              general = true;
+              general.core = true;
+              general.blink = true;
 
               # markdown = true;
               # java = true;

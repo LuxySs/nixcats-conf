@@ -1,6 +1,6 @@
 return {
   'nvim-lualine/lualine.nvim',
-  enabled = require('nixCatsUtils').enableForCategory({ 'core' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'general.core' }),
   event = 'VeryLazy',
   opts = {},
 }

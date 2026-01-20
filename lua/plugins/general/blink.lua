@@ -1,6 +1,6 @@
 return {
   'saghen/blink.cmp',
-  enabled = require('nixCatsUtils').enableForCategory({ 'blink' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'general.blink' }),
   event = 'InsertEnter',
   version = '1.*',
 
