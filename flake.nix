@@ -268,13 +268,13 @@
               markdown = true;
 
               # java = true;
-              # web = true;
-              # rust = true;
-              # lua = true;
-              # nix = true;
-              # bash = true;
+              web = true;
+              rust = true;
+              lua = true;
+              nix = true;
+              bash = true;
               python = true;
-              # C = true;
+              C = true;
               latex = true;
               # plantuml = true;
               otter = true;
