@@ -5,11 +5,7 @@ return {
     'rcarriga/nvim-dap-ui',
     'theHamsta/nvim-dap-virtual-text',
     'nvim-neotest/nvim-nio',
-
-    {
-      'mfussenegger/nvim-dap-python',
-      enabled = require('nixCatsUtils').enableForCategory({ 'python' }),
-    },
+    'mfussenegger/nvim-dap-python',
   },
 
   keys = {

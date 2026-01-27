@@ -179,6 +179,9 @@
             latex = [
               vimtex
             ];
+            python = [
+              nvim-dap-python
+            ];
             # plantuml = [
             #   plantuml-syntax
             # ];
@@ -270,7 +273,7 @@
               # lua = true;
               # nix = true;
               # bash = true;
-              # python = true;
+              python = true;
               # C = true;
               latex = true;
               # plantuml = true;
