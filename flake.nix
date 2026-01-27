@@ -173,10 +173,9 @@
             #   nvim-highlight-colors
             #   comment-nvim
             # ];
-            # markdown = [
-            #   markdown-preview-nvim
-            #   markview-nvim
-            # ];
+            markdown = [
+              markview-nvim
+            ];
             # latex = [
             #   vimtex
             # ];
@@ -263,8 +262,8 @@
 
               general = true;
               typst = true;
+              markdown = true;
 
-              # markdown = true;
               # java = true;
               # web = true;
               # rust = true;
