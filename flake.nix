@@ -151,9 +151,9 @@
               lazydev-nvim
             ];
 
-            # otter = [
-            #   otter-nvim
-            # ];
+            otter = [
+              otter-nvim
+            ];
             # java = [
             #   nvim-jdtls
             # ];
@@ -277,7 +277,7 @@
               # C = true;
               latex = true;
               # plantuml = true;
-              # otter = true;
+              otter = true;
               debug = true;
               other = true;
               # codesnap = true;
