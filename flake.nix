@@ -116,16 +116,6 @@
 
           # This is for plugins that will load at startup without using packadd:
           startupPlugins = with pkgs.vimPlugins; {
-            # TODO: colorscheme
-
-            # colorschemes = [
-            #   catppuccin-nvim
-            #   gruvbox-nvim
-            #   onedark-nvim
-            #   tokyonight-nvim
-            #   vague-nvim
-            # ];
-
             general = [
               lazy-nvim
               mini-ai
@@ -149,6 +139,14 @@
               fidget-nvim
               nvim-lspconfig
               lazydev-nvim
+            ];
+
+            colorschemes = [
+              catppuccin-nvim
+              gruvbox-nvim
+              onedark-nvim
+              tokyonight-nvim
+              vague-nvim
             ];
 
             otter = [
@@ -281,7 +279,8 @@
               debug = true;
               other = true;
               codesnap = true;
-              # colorscheme = "gruvbox";
+              colorschemes = true;
+              mainColorscheme = "gruvbox";
             };
           };
       };

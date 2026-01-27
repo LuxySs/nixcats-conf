@@ -42,6 +42,4 @@ require('nixCatsUtils.lazyCat').setup(nixCats.pawsible({ 'allPlugins', 'start', 
 }, lazyOptions)
 
 -- Set colorscheme
--- if require('nixCatsUtils').enableForCategory({ 'general', 'colorschemes' }) then
---   vim.cmd.colorscheme(require('nixCatsUtils').getCatOrDefault('colorscheme', 'vague'))
--- end
+vim.cmd.colorscheme(require('nixCatsUtils').getCatOrDefault('mainColorscheme', 'habamax'))

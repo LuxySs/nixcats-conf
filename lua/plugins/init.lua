@@ -5,4 +5,5 @@ return {
   { import = 'plugins.latex' },
   { import = 'plugins.other' },
   { import = 'plugins.debug' },
+  { import = 'plugins.colorschemes' },
 }
