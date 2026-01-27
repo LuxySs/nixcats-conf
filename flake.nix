@@ -176,9 +176,9 @@
             markdown = [
               markview-nvim
             ];
-            # latex = [
-            #   vimtex
-            # ];
+            latex = [
+              vimtex
+            ];
             # plantuml = [
             #   plantuml-syntax
             # ];
@@ -272,7 +272,7 @@
               # bash = true;
               # python = true;
               # C = true;
-              # latex = true;
+              latex = true;
               # plantuml = true;
               # otter = true;
               # debug = true;
