@@ -22,6 +22,7 @@ return {
       nix = { 'nixfmt' },
       c = { 'clang-format' },
       cpp = { 'clang-format' },
+      cmake = { 'cmake_format' },
       python = { 'ruff_format' },
       javascript = { 'prettierd' },
       typescript = { 'prettierd' },

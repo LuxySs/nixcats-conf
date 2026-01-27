@@ -104,7 +104,7 @@
             C = [
               clang-tools
               neocmakelsp
-              #TODO: add cmake-format
+              cmake-format
             ];
             latex = [
               texlab
