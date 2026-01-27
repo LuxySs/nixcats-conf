@@ -154,9 +154,9 @@
             otter = [
               otter-nvim
             ];
-            # java = [
-            #   nvim-jdtls
-            # ];
+            java = [
+              nvim-jdtls
+            ];
             typst = [
               typst-preview-nvim
             ];
@@ -267,7 +267,7 @@
               typst = true;
               markdown = true;
 
-              # java = true;
+              java = true;
               web = true;
               rust = true;
               lua = true;
