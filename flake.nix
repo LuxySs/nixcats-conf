@@ -185,9 +185,9 @@
             plantuml = [
               plantuml-syntax
             ];
-            # codesnap = [
-            #   codesnap-nvim
-            # ];
+            codesnap = [
+              codesnap-nvim
+            ];
           };
 
           # not loaded automatically at startup.
@@ -280,7 +280,7 @@
               otter = true;
               debug = true;
               other = true;
-              # codesnap = true;
+              codesnap = true;
               # colorscheme = "gruvbox";
             };
           };
