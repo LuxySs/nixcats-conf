@@ -182,9 +182,9 @@
             python = [
               nvim-dap-python
             ];
-            # plantuml = [
-            #   plantuml-syntax
-            # ];
+            plantuml = [
+              plantuml-syntax
+            ];
             # codesnap = [
             #   codesnap-nvim
             # ];
@@ -276,7 +276,7 @@
               python = true;
               C = true;
               latex = true;
-              # plantuml = true;
+              plantuml = true;
               otter = true;
               debug = true;
               other = true;
