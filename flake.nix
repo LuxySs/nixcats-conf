@@ -150,22 +150,16 @@
               nvim-lspconfig
               lazydev-nvim
             ];
-          };
 
-          # not loaded automatically at startup.
-          # use with packadd and an autocommand in config to achieve lazy loading
-          # NOTE: no difference between this and startupPlugins since lazy is
-          # in charge of the lazy loading side of things.
-          optionalPlugins = with pkgs.vimPlugins; {
             # otter = [
             #   otter-nvim
             # ];
             # java = [
             #   nvim-jdtls
             # ];
-            # typst = [
-            #   typst-preview-nvim
-            # ];
+            typst = [
+              typst-preview-nvim
+            ];
             # debug = [
             #   nvim-dap
             #   nvim-dap-ui
@@ -192,6 +186,13 @@
             # codesnap = [
             #   codesnap-nvim
             # ];
+          };
+
+          # not loaded automatically at startup.
+          # use with packadd and an autocommand in config to achieve lazy loading
+          # NOTE: no difference between this and startupPlugins since lazy is
+          # in charge of the lazy loading side of things.
+          optionalPlugins = with pkgs.vimPlugins; {
           };
 
           # shared libraries to be added to LD_LIBRARY_PATH
@@ -261,13 +262,13 @@
               portableExtras = true;
 
               general = true;
+              typst = true;
 
               # markdown = true;
               # java = true;
               # web = true;
               # rust = true;
               # lua = true;
-              # typst = true;
               # nix = true;
               # bash = true;
               # python = true;
