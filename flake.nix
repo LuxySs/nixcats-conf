@@ -165,14 +165,14 @@
             #   nvim-dap-ui
             #   nvim-dap-virtual-text
             # ];
-            # other = [
-            #   plenary-nvim
-            #   todo-comments-nvim
-            #   which-key-nvim
-            #   nvim-ufo
-            #   nvim-highlight-colors
-            #   comment-nvim
-            # ];
+            other = [
+              plenary-nvim
+              todo-comments-nvim
+              which-key-nvim
+              nvim-ufo
+              nvim-highlight-colors
+              comment-nvim
+            ];
             markdown = [
               markview-nvim
             ];
@@ -276,7 +276,7 @@
               # plantuml = true;
               # otter = true;
               # debug = true;
-              # other = true;
+              other = true;
               # codesnap = true;
               # colorscheme = "gruvbox";
             };
