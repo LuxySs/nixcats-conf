@@ -274,11 +274,11 @@
               python = true;
               C = true;
               latex = true;
-              plantuml = true;
-              otter = true;
+              plantuml = false;
+              otter = false;
               debug = true;
               other = true;
-              codesnap = true;
+              codesnap = false;
               colorschemes = true;
               mainColorscheme = "gruvbox";
             };
