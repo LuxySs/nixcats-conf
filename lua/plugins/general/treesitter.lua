@@ -1,8 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   enabled = require('nixCatsUtils').enableForCategory({ 'general' }),
-
-  event = 'VeryLazy',
   lazy = false,
 
   build = require('nixCatsUtils').lazyAdd(':TSUpdate'),
