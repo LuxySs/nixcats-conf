@@ -1,6 +1,6 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  enabled = require('nixCatsUtils').enableForCategory({ 'general.core' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'general' }),
 
   event = 'VeryLazy',
   lazy = false,

@@ -5,7 +5,7 @@ local linters_by_ft = {
 
 return {
   'mfussenegger/nvim-lint',
-  enabled = require('nixCatsUtils').enableForCategory({ 'general.core' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'general' }),
 
   event = { 'BufReadPre', 'BufNewFile' },
   config = function()

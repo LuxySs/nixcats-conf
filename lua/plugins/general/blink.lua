@@ -1,12 +1,11 @@
 return {
   'saghen/blink.cmp',
-  enabled = require('nixCatsUtils').enableForCategory({ 'general.blink' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'general' }),
   event = 'InsertEnter',
   version = '1.*',
 
   dependencies = {
     'L3MON4D3/LuaSnip',
-    enabled = require('nixCatsUtils').enableForCategory({ 'blink' }),
     lazy = true,
 
     name = 'luasnip',

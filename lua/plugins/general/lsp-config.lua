@@ -1,6 +1,6 @@
 return {
   'neovim/nvim-lspconfig',
-  enabled = require('nixCatsUtils').enableForCategory({ 'general.core' }),
+  enabled = require('nixCatsUtils').enableForCategory({ 'general' }),
 
   dependencies = {
     -- Useful status updates for LSP.

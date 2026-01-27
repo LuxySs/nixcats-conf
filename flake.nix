@@ -136,6 +136,19 @@
               snacks-nvim
               vim-tmux-navigator
               nvim-web-devicons
+
+              blink-cmp
+              luasnip
+              friendly-snippets
+
+              nvim-treesitter.withAllGrammars
+              lualine-nvim
+              gitsigns-nvim
+              nvim-lint
+              conform-nvim
+              fidget-nvim
+              nvim-lspconfig
+              lazydev-nvim
             ];
           };
 
@@ -179,24 +192,6 @@
             # codesnap = [
             #   codesnap-nvim
             # ];
-
-            general = with pkgs.neovimPlugins; {
-              blink = with pkgs.vimPlugins; [
-                blink-cmp
-                luasnip
-                friendly-snippets
-              ];
-              core = [
-                nvim-treesitter.withAllGrammars
-                lualine-nvim
-                gitsigns-nvim
-                nvim-lint
-                conform-nvim
-                fidget-nvim
-                nvim-lspconfig
-                lazydev-nvim
-              ];
-            };
           };
 
           # shared libraries to be added to LD_LIBRARY_PATH
@@ -265,8 +260,7 @@
             categories = {
               portableExtras = true;
 
-              general.core = true;
-              general.blink = true;
+              general = true;
 
               # markdown = true;
               # java = true;
