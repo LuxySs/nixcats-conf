@@ -160,11 +160,11 @@
             typst = [
               typst-preview-nvim
             ];
-            # debug = [
-            #   nvim-dap
-            #   nvim-dap-ui
-            #   nvim-dap-virtual-text
-            # ];
+            debug = [
+              nvim-dap
+              nvim-dap-ui
+              nvim-dap-virtual-text
+            ];
             other = [
               plenary-nvim
               todo-comments-nvim
@@ -275,7 +275,7 @@
               latex = true;
               # plantuml = true;
               # otter = true;
-              # debug = true;
+              debug = true;
               other = true;
               # codesnap = true;
               # colorscheme = "gruvbox";

@@ -4,4 +4,5 @@ return {
   { import = 'plugins.markdown' },
   { import = 'plugins.latex' },
   { import = 'plugins.other' },
+  { import = 'plugins.debug' },
 }
