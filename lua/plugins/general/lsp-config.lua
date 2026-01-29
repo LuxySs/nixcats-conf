@@ -113,6 +113,7 @@ return {
       'rust_analyzer',
       'ts_ls',
       'tinymist',
+      'jdtls',
     })
   end,
 }
