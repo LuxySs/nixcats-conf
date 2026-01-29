@@ -91,7 +91,7 @@
             nix = [
               nix-doc
               nixd
-              nixfmt-rfc-style
+              nixfmt
             ];
             bash = [
               bash-language-server
