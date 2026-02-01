@@ -5,6 +5,7 @@ require('nixCatsUtils').setup({
 require('autocommands')
 require('options')
 require('keymaps')
+require('diagnostic')
 require('neovide')
 
 local function getlockfilepath()

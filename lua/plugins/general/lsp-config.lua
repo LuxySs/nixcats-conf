@@ -33,15 +33,6 @@ return {
 
         map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
-        map('<C-W>d', vim.diagnostic.open_float, 'Diagnostics Float Window')
-
-        map('[d', function()
-          vim.diagnostic.jump({ count = -1 })
-        end, 'Prev Diagnostic')
-        map(']d', function()
-          vim.diagnostic.jump({ count = 1 })
-        end, 'Next Diagnostic')
-
         local client = vim.lsp.get_client_by_id(event.data.client_id)
 
         if client and client:supports_method('textDocument/inlayHint', event.buf) then
@@ -51,43 +42,6 @@ return {
         end
       end,
     })
-
-    vim.diagnostic.config({
-      severity_sort = true,
-      float = { border = 'rounded', source = 'if_many' },
-      underline = { severity = vim.diagnostic.severity.ERROR },
-      signs = vim.g.have_nerd_font and {
-        text = {
-          [vim.diagnostic.severity.ERROR] = '<U+F015A> ',
-          [vim.diagnostic.severity.WARN] = '<U+F002A> ',
-          [vim.diagnostic.severity.INFO] = '<U+F02FD> ',
-          [vim.diagnostic.severity.HINT] = '<U+F0336> ',
-        },
-      } or {},
-      virtual_text = {
-        source = 'if_many',
-        spacing = 2,
-        format = function(diagnostic)
-          local diagnostic_message = {
-            [vim.diagnostic.severity.ERROR] = diagnostic.message,
-            [vim.diagnostic.severity.WARN] = diagnostic.message,
-            [vim.diagnostic.severity.INFO] = diagnostic.message,
-            [vim.diagnostic.severity.HINT] = diagnostic.message,
-          }
-          return diagnostic_message[diagnostic.severity]
-        end,
-      },
-    })
-
-    -- Keymap to toggle virtual_lines
-    vim.keymap.set('n', '<leader>vl', function()
-      local current = vim.diagnostic.config().virtual_lines
-      vim.diagnostic.config({
-        virtual_lines = not current,
-      })
-    end, { desc = 'Toggle [V]irtual [L]ines' })
-
-    vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
     vim.lsp.enable({
       'bashls',
