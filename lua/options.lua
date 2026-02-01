@@ -62,7 +62,9 @@ vim.opt.autochdir = false -- Don't auto change directory
 vim.opt.path:append('**') -- include subdirectories in search
 vim.opt.selection = 'inclusive' -- Selection behavior
 vim.opt.mouse = 'a' -- Enable mouse support
--- vim.opt.clipboard = 'unnamedplus' -- Use system clipboard
+vim.schedule(function()
+  vim.o.clipboard = 'unnamedplus'
+end) -- Use system clipboard
 vim.opt.modifiable = true -- Allow buffer modifications
 vim.opt.encoding = 'UTF-8' -- Set encoding
 

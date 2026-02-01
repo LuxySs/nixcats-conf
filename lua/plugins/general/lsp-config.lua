@@ -27,7 +27,13 @@ return {
           vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
 
-        map('K', vim.lsp.buf.hover, 'Hover Documentation')
+        map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
+
+        map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+
+        map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+
+        map('<C-W>d', vim.diagnostic.open_float, 'Diagnostics Float Window')
 
         map('[d', function()
           vim.diagnostic.jump({ count = -1 })
@@ -36,29 +42,9 @@ return {
           vim.diagnostic.jump({ count = 1 })
         end, 'Next Diagnostic')
 
-        map('<C-W>d', vim.diagnostic.open_float, 'Diagnostics Float Window')
-
-        map('grn', vim.lsp.buf.rename, 'Rename')
-
-        map('gra', vim.lsp.buf.code_action, 'Code Action', { 'n', 'x' })
-
-        -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
-        ---@param client vim.lsp.Client
-        ---@param method vim.lsp.protocol.Method
-        ---@param bufnr? integer some lsp support methods only in specific files
-        ---@return boolean
-        local function client_supports_method(client, method, bufnr)
-          if vim.fn.has('nvim-0.11') == 1 then
-            return client:supports_method(method, bufnr)
-          else
-            return client.supports_method(method, { bufnr = bufnr })
-          end
-        end
-
         local client = vim.lsp.get_client_by_id(event.data.client_id)
 
-        -- Keymap to toggle inlay hints in your code, if supported by the lsp.
-        if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+        if client and client:supports_method('textDocument/inlayHint', event.buf) then
           map('<leader>th', function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
           end, '[T]oggle Inlay [H]ints')
@@ -101,6 +87,8 @@ return {
       })
     end, { desc = 'Toggle [V]irtual [L]ines' })
 
+    vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
     vim.lsp.enable({
       'bashls',
       'texlab',
@@ -114,6 +102,31 @@ return {
       'ts_ls',
       'tinymist',
       'jdtls',
+    })
+
+    -- Special Lua Config, as recommended by neovim help docs
+    vim.lsp.config('lua_ls', {
+      on_init = function(client)
+        if client.workspace_folders then
+          local path = client.workspace_folders[1].name
+          if
+            path ~= vim.fn.stdpath('config')
+            and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+          then
+            return
+          end
+        end
+
+        client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+          runtime = {
+            version = 'LuaJIT',
+            path = { 'lua/?.lua', 'lua/?/init.lua' },
+          },
+        })
+      end,
+      settings = {
+        Lua = {},
+      },
     })
   end,
 }
