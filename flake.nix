@@ -170,6 +170,7 @@
               nvim-ufo
               nvim-highlight-colors
               comment-nvim
+              vim-dispatch
             ];
             markdown = [
               markview-nvim
