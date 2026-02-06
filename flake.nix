@@ -283,6 +283,11 @@
               colorschemes = true;
               mainColorscheme = "gruvbox";
             };
+            extra = {
+              nixdExtras = {
+                nixpkgs = "import ${pkgs.path} {}";
+              };
+            };
           };
       };
       # In this section, the main thing you will need to do is change the default package name
