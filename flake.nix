@@ -83,6 +83,7 @@
             ];
             lua = [
               lua-language-server
+              stylua
             ];
             typst = [
               tinymist
