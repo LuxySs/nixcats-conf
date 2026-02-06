@@ -173,6 +173,11 @@
               comment-nvim
               vim-dispatch
             ];
+            neogit = [
+              plenary-nvim
+              neogit
+              diffview-nvim
+            ];
             markdown = [
               markview-nvim
             ];
@@ -280,6 +285,7 @@
               otter = false;
               debug = true;
               other = true;
+              neogit = true;
               codesnap = false;
               colorschemes = true;
               mainColorscheme = "gruvbox";
