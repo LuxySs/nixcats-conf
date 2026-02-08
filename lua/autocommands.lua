@@ -33,9 +33,9 @@ vim.api.nvim_create_autocmd('TermOpen', {
 })
 
 -- Auto-resize splits when window is resized
-vim.api.nvim_create_autocmd('VimResized', {
-  group = augroup_user_config,
-  callback = function()
-    vim.cmd('tabdo wincmd =')
-  end,
-})
+-- vim.api.nvim_create_autocmd('VimResized', {
+--   group = augroup_user_config,
+--   callback = function()
+--     vim.cmd('tabdo wincmd =')
+--   end,
+-- })
