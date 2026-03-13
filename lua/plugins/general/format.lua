@@ -26,6 +26,7 @@ return {
       python = { 'ruff_format' },
       javascript = { 'prettierd' },
       typescript = { 'prettierd' },
+      java = { 'clang-format' },
     },
 
     format_on_save = function(bufnr)
