@@ -26,12 +26,13 @@ return {
       python = { 'ruff_format' },
       javascript = { 'prettierd' },
       typescript = { 'prettierd' },
+      java = { 'spotless_maven' },
     },
 
     format_on_save = function(bufnr)
       -- Disable autoformat on certain languages that don't
       -- have a well standardized coding style (c, cpp, ...).
-      local disable_lsp_fallback_filetypes = { c = true, cpp = true }
+      local disable_lsp_fallback_filetypes = { c = true, cpp = true, java = true }
       if disable_lsp_fallback_filetypes[vim.bo[bufnr].filetype] then
         return
       end
