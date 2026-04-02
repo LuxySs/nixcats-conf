@@ -72,7 +72,7 @@
               jdt-language-server
             ];
             web = {
-              JS = with nodePackages; [
+              JS = [
                 typescript-language-server
                 eslint
                 prettier
