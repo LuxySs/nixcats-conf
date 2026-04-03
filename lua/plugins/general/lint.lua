@@ -1,6 +1,7 @@
 local linters_by_ft = {
   markdown = { 'markdownlint' },
   python = { 'ruff' },
+  java = { 'checkstyle' },
 }
 
 return {
@@ -11,6 +12,8 @@ return {
   config = function()
     local lint = require('lint')
     lint.linters_by_ft = linters_by_ft
+
+    lint.linters.checkstyle.args = { '-f', 'sarif', '-c', vim.fn.getcwd() .. '/checkstyle.xml' }
 
     -- Create autocommand which carries out the actual linting
     -- on the specified events.
