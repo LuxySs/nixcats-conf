@@ -70,6 +70,7 @@
             ];
             java = [
               jdt-language-server
+              checkstyle
             ];
             web = {
               JS = [
